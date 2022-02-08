@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6ecdc15f8cd2f43b2d01a158e873bb, type: 3}
+  m_Name: Explosion
+  m_EditorClassIdentifier: 
+  effectName: Explosion
+  constructionPosition: 2
+  effectDesc: POPULATE ME
+  gameplayEffectDesc: Adds explosive effect
+  visualEffectDesc: Adds fire color
+  elements: 1
