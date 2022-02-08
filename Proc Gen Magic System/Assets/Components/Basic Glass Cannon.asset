@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cdb8e02ab7a8794db27c5db77a5ccce, type: 3}
-  m_Name: Basic Ice
+  m_Name: Basic Glass Cannon
   m_EditorClassIdentifier: 
-  name: Basic Ice
-  primaryEffect: {fileID: 11400000, guid: d9de58bb89e5e22458e174fa4a734ad3, type: 2}
-  secondaryEffect: {fileID: 11400000, guid: 0a9834ce32456ad4486650ef944ad697, type: 2}
+  name: Basic Glass Cannon
+  primaryEffect: {fileID: 11400000, guid: a51dcfe97d4c1e04cb52d8915a8810cc, type: 2}
+  secondaryEffect: {fileID: 11400000, guid: 4800114b93584bd499ae53752c7db864, type: 2}
   usePrimaryEffect: 1

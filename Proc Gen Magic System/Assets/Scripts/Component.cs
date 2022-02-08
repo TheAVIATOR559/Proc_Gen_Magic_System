@@ -23,6 +23,7 @@ public enum Elements
 [CreateAssetMenu(fileName = "Default", menuName = "Component")]
 public class Component : ScriptableObject
 {
+    public new string name;
     public Effect primaryEffect, secondaryEffect;
     public bool usePrimaryEffect = true;
 }

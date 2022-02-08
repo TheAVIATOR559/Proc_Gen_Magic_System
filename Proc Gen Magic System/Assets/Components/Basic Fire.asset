@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdb8e02ab7a8794db27c5db77a5ccce, type: 3}
   m_Name: Basic Fire
   m_EditorClassIdentifier: 
+  name: Basic Fire
   primaryEffect: {fileID: 11400000, guid: b0d4f50cfb7f7c246a411e69036020ff, type: 2}
   secondaryEffect: {fileID: 11400000, guid: 6d3bdf9dc5dbdd14eabfff45957042e7, type: 2}
   usePrimaryEffect: 1

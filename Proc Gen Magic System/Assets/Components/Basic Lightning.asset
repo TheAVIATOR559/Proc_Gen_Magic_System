@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdb8e02ab7a8794db27c5db77a5ccce, type: 3}
   m_Name: Basic Lightning
   m_EditorClassIdentifier: 
+  name: Basic Lightning
   primaryEffect: {fileID: 11400000, guid: bd5b3e07faab47541947aa0a1c255a54, type: 2}
   secondaryEffect: {fileID: 11400000, guid: 1f77e5a2b5f16fd458c4540beb85bfc8, type: 2}
   usePrimaryEffect: 1

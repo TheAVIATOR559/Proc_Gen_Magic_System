@@ -45,9 +45,34 @@ public class Builder : MonoBehaviour
     private void BuildSpell()
     {
         //pick components
-        spellComps.Add(components[0]);
-        spellComps.Add(components[1]);
-        spellComps.Add(components[2]);
+
+        /* if there is no prev comp, skip
+         * 
+         * pick new comp
+         * if new comp has same primary const pos as prev, use secondary effect
+         */
+
+        spellComps.Add(Instantiate(components[Random.Range(0, components.Count)]));
+        Construction_Position prevPosition = spellComps[0].primaryEffect.constructionPosition;
+
+        for(int i = 0; i < 2; i++)
+        {
+            spellComps.Add(Instantiate(components[Random.Range(0, components.Count)]));
+
+            if (spellComps[spellComps.Count - 1].primaryEffect.constructionPosition == prevPosition)
+            {
+                spellComps[spellComps.Count - 1].usePrimaryEffect = false;
+                prevPosition = spellComps[spellComps.Count - 1].secondaryEffect.constructionPosition;
+            }
+            else
+            {
+                prevPosition = spellComps[spellComps.Count - 1].primaryEffect.constructionPosition;
+            }
+        }
+
+        //spellComps.Add(components[0]);
+        //spellComps.Add(components[1]);
+        //spellComps.Add(components[2]);
 
         //generate spell circle
         spellCircleImage.fillAmount = 1f;
