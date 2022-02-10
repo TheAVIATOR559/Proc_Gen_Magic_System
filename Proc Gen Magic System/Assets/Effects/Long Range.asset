@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Long Range
   m_EditorClassIdentifier: 
   effectName: Long Range
+  ID: 17
   constructionPosition: 1
   effectDesc: POPULATE ME
   gameplayEffectDesc: No upper limit on spell range
   visualEffectDesc: Set visual size to narrow/pointy
+  conflictingEffects: 0b0d11

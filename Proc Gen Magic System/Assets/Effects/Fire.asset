@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   effectName: Fire
+  ID: 1
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: Adds burning DOT
   visualEffectDesc: Add fire look
+  conflictingEffects: 0305
   elements: 1

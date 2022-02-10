@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   effectName: Ice
+  ID: 3
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: Adds freezing DOT
   visualEffectDesc: Adds ice look
+  conflictingEffects: 0105
   elements: 2

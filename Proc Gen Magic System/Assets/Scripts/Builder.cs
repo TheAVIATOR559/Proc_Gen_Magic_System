@@ -6,17 +6,17 @@ using TMPro;
 
 public class Builder : MonoBehaviour
 {
-    [SerializeField] private GameObject componentPanelPrefab;
+    [SerializeField] private GameObject EffectPanelPrefab;
 
     [SerializeField] private TMP_Text spellNameText;
     [SerializeField] private Image spellCircleImage;
-    [SerializeField] private Transform componentHolder;
-    [SerializeField] private List<Component> components;
+    [SerializeField] private Transform effectHolder;
+    [SerializeField] private List<Effect> effects;
 
     private static Builder Instance;
 
     public string spellName;
-    public List<Component> spellComps;
+    public List<Effect> spellEffects;
 
     public static void GenerateNewSpell()
     {
@@ -26,13 +26,13 @@ public class Builder : MonoBehaviour
 
     private void DestroyCurrentSpell()
     {
-        spellComps.Clear();
+        spellEffects.Clear();
         spellName = "";
 
         //reset all UI info
         spellNameText.text = "##NAME##";
         //spellCircleImage I HAVE NO IDEA WHAT TO DO HERE
-        foreach(Transform child in componentHolder)
+        foreach(Transform child in effectHolder)
         {
             Destroy(child.gameObject);
         }
@@ -52,21 +52,17 @@ public class Builder : MonoBehaviour
          * if new comp has same primary const pos as prev, use secondary effect
          */
 
-        spellComps.Add(Instantiate(components[Random.Range(0, components.Count)]));
-        Construction_Position prevPosition = spellComps[0].primaryEffect.constructionPosition;
+        spellEffects.Add(Instantiate(effects[Random.Range(0, effects.Count)]));
+        List<byte> knownConflicts = new List<byte>();
+        knownConflicts.AddRange(spellEffects[0].conflictingEffects);
 
-        for(int i = 0; i < 2; i++)
+        while (spellEffects.Count < 3)
         {
-            spellComps.Add(Instantiate(components[Random.Range(0, components.Count)]));
+            int selectedComp = Random.Range(0, effects.Count);
 
-            if (spellComps[spellComps.Count - 1].primaryEffect.constructionPosition == prevPosition)
+            if (!knownConflicts.Contains(effects[selectedComp].ID))
             {
-                spellComps[spellComps.Count - 1].usePrimaryEffect = false;
-                prevPosition = spellComps[spellComps.Count - 1].secondaryEffect.constructionPosition;
-            }
-            else
-            {
-                prevPosition = spellComps[spellComps.Count - 1].primaryEffect.constructionPosition;
+                spellEffects.Add(effects[selectedComp]);
             }
         }
 
@@ -79,52 +75,48 @@ public class Builder : MonoBehaviour
 
         //generate name
 
-        foreach (Component comp in spellComps)
+        foreach (Effect effect in spellEffects)
         {
-            DisplayComponent(comp);
+            DisplayEffect(effect);
         }
+
+        //generate gameplay effects
+
     }
 
-    private void DisplayComponent(Component comp)
+    private void DisplayEffect(Effect comp)
     {
-        Color darkenedEffectColor = new Color(0.3921569f, 0.3921569f, 0.3921569f, 1f);
+        GameObject newPanel = Instantiate(EffectPanelPrefab, effectHolder);
 
-        GameObject newPanel = Instantiate(componentPanelPrefab, componentHolder);
+        newPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = comp.effectName;
+        newPanel.transform.GetChild(1).GetComponent<TMP_Text>().text += comp.ID.ToString();
+        newPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = comp.constructionPosition.ToString();
+        newPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = comp.effectDesc;
+        newPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = comp.gameplayEffectDesc;
+        newPanel.transform.GetChild(5).GetComponent<TMP_Text>().text = comp.visualEffectDesc;
 
-        newPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = comp.name;
+        //if construction posistion is element also list its element
 
-        newPanel.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = comp.primaryEffect.effectName;
-        newPanel.transform.GetChild(1).GetChild(1).GetComponent<TMP_Text>().text = comp.primaryEffect.constructionPosition.ToString();
-        newPanel.transform.GetChild(1).GetChild(2).GetComponent<TMP_Text>().text = comp.primaryEffect.effectDesc;
-        newPanel.transform.GetChild(1).GetChild(3).GetComponent<TMP_Text>().text = comp.primaryEffect.gameplayEffectDesc;
-        newPanel.transform.GetChild(1).GetChild(4).GetComponent<TMP_Text>().text = comp.primaryEffect.visualEffectDesc;
-
-        newPanel.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = comp.secondaryEffect.effectName;
-        newPanel.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = comp.secondaryEffect.constructionPosition.ToString();
-        newPanel.transform.GetChild(2).GetChild(2).GetComponent<TMP_Text>().text = comp.secondaryEffect.effectDesc;
-        newPanel.transform.GetChild(2).GetChild(3).GetComponent<TMP_Text>().text = comp.secondaryEffect.gameplayEffectDesc;
-        newPanel.transform.GetChild(2).GetChild(4).GetComponent<TMP_Text>().text = comp.secondaryEffect.visualEffectDesc;
-
-        if(comp.usePrimaryEffect)
+        if(comp.conflictingEffects.Count > 0)
         {
-            //darken secondary effect
-            newPanel.transform.GetChild(2).GetComponent<Image>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(2).GetChild(2).GetComponent<TMP_Text>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(2).GetChild(3).GetComponent<TMP_Text>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(2).GetChild(4).GetComponent<TMP_Text>().color = darkenedEffectColor;
+            foreach(byte value in comp.conflictingEffects)
+            {
+                newPanel.transform.GetChild(6).GetComponent<TMP_Text>().text += value + ", ";
+            }
         }
         else
         {
-            //darken primary effect
-            newPanel.transform.GetChild(1).GetComponent<Image>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(1).GetChild(1).GetComponent<TMP_Text>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(1).GetChild(2).GetComponent<TMP_Text>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(1).GetChild(3).GetComponent<TMP_Text>().color = darkenedEffectColor;
-            newPanel.transform.GetChild(1).GetChild(4).GetComponent<TMP_Text>().color = darkenedEffectColor;
+            newPanel.transform.GetChild(6).GetComponent<TMP_Text>().text += "None";
         }
+
+        /* 0 is name
+         * 1 is id #
+         * 2 is construction position
+         * 3 is effect desc
+         * 4 is gameplay effect
+         * 5 is visual effect
+         * 6 is effect conflicts
+         */
     }
 
     public void Awake()

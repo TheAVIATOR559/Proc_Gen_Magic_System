@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   effectName: Shotgun
+  ID: 12
   constructionPosition: 3
   effectDesc: POPULATE ME
   gameplayEffectDesc: Increase the number of projectiles fired to 7-10
   visualEffectDesc: Add multiple 'pellets'
+  conflictingEffects: 0c0e1012

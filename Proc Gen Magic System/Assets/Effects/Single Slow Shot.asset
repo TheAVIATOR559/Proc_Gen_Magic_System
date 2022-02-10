@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Single Slow Shot
   m_EditorClassIdentifier: 
   effectName: Single Slow Shot
+  ID: 14
   constructionPosition: 3
   effectDesc: POPULATE ME
   gameplayEffectDesc: A single slow moving projectile
   visualEffectDesc: Slow visual animations
+  conflictingEffects: 0c0e1012

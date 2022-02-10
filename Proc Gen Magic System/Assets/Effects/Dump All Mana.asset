@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Dump All Mana
   m_EditorClassIdentifier: 
   effectName: Dump All Mana
+  ID: 22
   constructionPosition: 0
   effectDesc: POPULATE ME
   gameplayEffectDesc: Increase mana cost to max and increase damage proportionally
   visualEffectDesc: Max out magic visual power
+  conflictingEffects: 1416

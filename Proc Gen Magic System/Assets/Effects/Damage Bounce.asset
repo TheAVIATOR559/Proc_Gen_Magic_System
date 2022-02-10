@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Damage Bounce
   m_EditorClassIdentifier: 
   effectName: Damage Bounce
+  ID: 6
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: Damage bounces to neighbors
   visualEffectDesc: Adds lightning color
+  conflictingEffects: 
   elements: 3

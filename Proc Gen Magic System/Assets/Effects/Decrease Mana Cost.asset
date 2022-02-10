@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Decrease Mana Cost
   m_EditorClassIdentifier: 
   effectName: Decrease Mana Cost
+  ID: 20
   constructionPosition: 0
   effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease total mana cost of spell
   visualEffectDesc: Decrease magic visual power
+  conflictingEffects: 16

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Hitscan Shot
   m_EditorClassIdentifier: 
   effectName: Single Hitscan Shot
+  ID: 18
   constructionPosition: 3
   effectDesc: POPULATE ME
   gameplayEffectDesc: Projectile has no travel time
   visualEffectDesc: Add blinking effect
+  conflictingEffects: 0c0e1012

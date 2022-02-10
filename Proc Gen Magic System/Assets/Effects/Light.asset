@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Light
   m_EditorClassIdentifier: 
   effectName: Light
+  ID: 7
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: Increase damage per kill
   visualEffectDesc: Adds light look
+  conflictingEffects: 09
   elements: 4

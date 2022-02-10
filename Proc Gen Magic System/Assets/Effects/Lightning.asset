@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   effectName: Lightning
+  ID: 5
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: Adds shock DOT
   visualEffectDesc: Adds Lightning Look
+  conflictingEffects: 0103
   elements: 3

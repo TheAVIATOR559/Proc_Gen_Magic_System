@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Slow On Contact
   m_EditorClassIdentifier: 
   effectName: Slow on Contact
+  ID: 4
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: Slows target on contact
   visualEffectDesc: Adds ice color
+  conflictingEffects: 
   elements: 2

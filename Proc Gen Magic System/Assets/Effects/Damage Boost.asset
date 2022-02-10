@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Damage Boost
   m_EditorClassIdentifier: 
   effectName: Damage Boost
+  ID: 19
   constructionPosition: 0
   effectDesc: POPULATE ME
   gameplayEffectDesc: Increase total spell damage
   visualEffectDesc: Increase damage visual power
+  conflictingEffects: 

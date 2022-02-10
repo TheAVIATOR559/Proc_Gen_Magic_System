@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Decrease Cast Delay
   m_EditorClassIdentifier: 
   effectName: Decrease Cast Delay
+  ID: 21
   constructionPosition: 0
   effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease time between firings
   visualEffectDesc: Increase orb spawn speed
+  conflictingEffects: 

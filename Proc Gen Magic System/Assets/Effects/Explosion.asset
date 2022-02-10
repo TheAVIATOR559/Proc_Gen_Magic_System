@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Explosion
   m_EditorClassIdentifier: 
   effectName: Explosion
+  ID: 2
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: Adds explosive effect
   visualEffectDesc: Adds fire color
+  conflictingEffects: 
   elements: 1

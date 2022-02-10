@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Short Range
   m_EditorClassIdentifier: 
   effectName: Short Range
+  ID: 13
   constructionPosition: 1
   effectDesc: POPULATE ME
   gameplayEffectDesc: Limit spell effective range to 3-5 units
   visualEffectDesc: Set visual size to small
+  conflictingEffects: 0b0d11

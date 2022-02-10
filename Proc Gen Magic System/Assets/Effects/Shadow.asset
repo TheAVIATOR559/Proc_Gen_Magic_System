@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Shadow
   m_EditorClassIdentifier: 
   effectName: Shadow
+  ID: 9
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: More damage on healthier foes
   visualEffectDesc: Adds shadow look
+  conflictingEffects: 07
   elements: 5

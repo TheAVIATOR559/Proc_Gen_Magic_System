@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Blind Target
   m_EditorClassIdentifier: 
   effectName: Blind Target
+  ID: 10
   constructionPosition: 2
   effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease target accuracy
   visualEffectDesc: Add shadow color
+  conflictingEffects: 
   elements: 5

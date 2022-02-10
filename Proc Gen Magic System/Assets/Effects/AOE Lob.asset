@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: AOE Lob
   m_EditorClassIdentifier: 
   effectName: AOE Lob
+  ID: 15
   constructionPosition: 1
   effectDesc: POPULATE ME
   gameplayEffectDesc: Projectile travels in an arc and explodes on contact
   visualEffectDesc: Sets visual size to large
+  conflictingEffects: 0e0f12
