@@ -9,7 +9,7 @@ public class Builder : MonoBehaviour
     [SerializeField] private GameObject EffectPanelPrefab;
 
     [SerializeField] private TMP_Text spellNameText;
-    [SerializeField] private Image spellCircleImage;
+    [SerializeField] private GameObject spellCircleImage;
     [SerializeField] private Transform effectHolder;
     [SerializeField] private List<Effect> effects;
 
@@ -71,7 +71,7 @@ public class Builder : MonoBehaviour
         //spellComps.Add(components[2]);
 
         //generate spell circle
-        spellCircleImage.fillAmount = 1f;
+        spellCircleImage.SetActive(true);
 
         //generate name
 
@@ -122,6 +122,6 @@ public class Builder : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        spellCircleImage.fillAmount = 0f;
+        spellCircleImage.SetActive(false);
     }
 }
