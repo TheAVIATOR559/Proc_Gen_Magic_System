@@ -19,4 +19,5 @@ MonoBehaviour:
   gameplayEffectDesc: Adds shock DOT
   visualEffectDesc: Adds Lightning Look
   conflictingEffects: 0103
+  circlePart: {fileID: 2800000, guid: 3fc1a35d3065d6a49bd7cae6a39161af, type: 3}
   elements: 3

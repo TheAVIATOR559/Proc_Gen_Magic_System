@@ -19,4 +19,5 @@ MonoBehaviour:
   gameplayEffectDesc: Adds burning DOT
   visualEffectDesc: Add fire look
   conflictingEffects: 0305
+  circlePart: {fileID: 2800000, guid: cf49926ffd1621c44bd87bdcfb567944, type: 3}
   elements: 1

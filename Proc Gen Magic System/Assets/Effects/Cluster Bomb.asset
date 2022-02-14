@@ -19,3 +19,4 @@ MonoBehaviour:
   gameplayEffectDesc: Projectile splits into 4-8 smaller projectiles on contact
   visualEffectDesc: Add multiple larger orbs
   conflictingEffects: 0c1012
+  circlePart: {fileID: 2800000, guid: e98358daac8e2ac44addef27633ddde9, type: 3}

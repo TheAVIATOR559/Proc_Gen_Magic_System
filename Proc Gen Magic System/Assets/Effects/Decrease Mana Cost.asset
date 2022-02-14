@@ -19,3 +19,4 @@ MonoBehaviour:
   gameplayEffectDesc: Decrease total mana cost of spell
   visualEffectDesc: Decrease magic visual power
   conflictingEffects: 16
+  circlePart: {fileID: 2800000, guid: ef3f053db9a8d8149b6e7a4628e8000f, type: 3}

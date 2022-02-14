@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+//using UnityEngine.UI;
 
 public enum Construction_Position
 {
@@ -31,6 +32,7 @@ public class Effect : ScriptableObject
     public string gameplayEffectDesc;
     public string visualEffectDesc;
     public List<byte> conflictingEffects = new List<byte>();
+    public Texture2D circlePart;
 
     public virtual void AddGameplayEffect()
     {

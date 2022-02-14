@@ -19,3 +19,4 @@ MonoBehaviour:
   gameplayEffectDesc: Increase total spell damage
   visualEffectDesc: Increase damage visual power
   conflictingEffects: 
+  circlePart: {fileID: 2800000, guid: 731ebb4546990644a8ccf63f1b2812b7, type: 3}

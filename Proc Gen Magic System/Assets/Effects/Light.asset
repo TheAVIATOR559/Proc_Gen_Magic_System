@@ -19,4 +19,5 @@ MonoBehaviour:
   gameplayEffectDesc: Increase damage per kill
   visualEffectDesc: Adds light look
   conflictingEffects: 09
+  circlePart: {fileID: 2800000, guid: d76648a0ae11366429f6d057c6c7564a, type: 3}
   elements: 4

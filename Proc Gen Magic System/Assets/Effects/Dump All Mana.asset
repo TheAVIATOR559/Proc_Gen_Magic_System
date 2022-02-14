@@ -19,3 +19,4 @@ MonoBehaviour:
   gameplayEffectDesc: Increase mana cost to max and increase damage proportionally
   visualEffectDesc: Max out magic visual power
   conflictingEffects: 1416
+  circlePart: {fileID: 2800000, guid: 55d35202678db774b8dab7ccdf061fd9, type: 3}

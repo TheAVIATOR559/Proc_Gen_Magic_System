@@ -18,6 +18,8 @@ public class Builder : MonoBehaviour
     public string spellName;
     public List<Effect> spellEffects;
 
+    private Material spellCircleMat;
+
     public static void GenerateNewSpell()
     {
         Instance.DestroyCurrentSpell();
@@ -72,6 +74,9 @@ public class Builder : MonoBehaviour
 
         //generate spell circle
         spellCircleImage.SetActive(true);
+        spellCircleMat.SetTexture("_Outer_Texture", spellEffects[0].circlePart);
+        spellCircleMat.SetTexture("_Middle_Texture", spellEffects[1].circlePart);
+        spellCircleMat.SetTexture("_Inner_Texture", spellEffects[2].circlePart);
 
         //generate name
 
@@ -123,5 +128,6 @@ public class Builder : MonoBehaviour
     {
         Instance = this;
         spellCircleImage.SetActive(false);
+        spellCircleMat = spellCircleImage.GetComponent<Renderer>().material;
     }
 }

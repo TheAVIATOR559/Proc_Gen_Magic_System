@@ -19,4 +19,5 @@ MonoBehaviour:
   gameplayEffectDesc: Decrease target accuracy
   visualEffectDesc: Add shadow color
   conflictingEffects: 
+  circlePart: {fileID: 2800000, guid: b92c90030c0cff34583cacb740953973, type: 3}
   elements: 5

@@ -19,3 +19,4 @@ MonoBehaviour:
   gameplayEffectDesc: Projectile travels in an arc and explodes on contact
   visualEffectDesc: Sets visual size to large
   conflictingEffects: 0e0f12
+  circlePart: {fileID: 2800000, guid: 22aa91d350b27574dadadde5de0072b7, type: 3}
