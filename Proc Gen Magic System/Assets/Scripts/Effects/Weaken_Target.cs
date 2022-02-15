@@ -3,15 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Weaken Target", menuName = "Effects/Weaken Target", order = 8)]
-public class Weaken_Target : Elemental_Effect
+public class Weaken_Target : Effect
 {
+    [SerializeField] private Color color;
+
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect()
+    public override void AddVisualEffect(CircleLocation location, Material mat)
     {
-        //TODO POPULATE ME
+        switch (location)
+        {
+            case CircleLocation.OUTER:
+                mat.SetTexture("_Outer_Texture", circlePart);
+                mat.SetColor("_Outer_Color", color);
+                break;
+            case CircleLocation.MIDDLE:
+                mat.SetTexture("_Middle_Texture", circlePart);
+                mat.SetColor("_Middle_Color", color);
+                break;
+            case CircleLocation.INNER:
+                mat.SetTexture("_Inner_Texture", circlePart);
+                mat.SetColor("_Inner_Color", color);
+                break;
+        }
     }
 }

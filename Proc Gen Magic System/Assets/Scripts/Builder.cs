@@ -19,6 +19,7 @@ public class Builder : MonoBehaviour
     public List<Effect> spellEffects;
 
     private Material spellCircleMat;
+    private float rotationSpeed, pulseSpeed, minOpacity, maxOpacity;
 
     public static void GenerateNewSpell()
     {
@@ -42,6 +43,13 @@ public class Builder : MonoBehaviour
         //reset all gameplay effect
 
         //reset all visual effect
+        spellCircleMat.SetFloat("_Rotation_Speed", rotationSpeed);
+        spellCircleMat.SetFloat("_Pulse_Speed", pulseSpeed);
+        spellCircleMat.SetFloat("_Min_Opacity", minOpacity);
+        spellCircleMat.SetFloat("_Max_Opacity", maxOpacity);
+        spellCircleMat.SetColor("_Outer_Color", Color.white);
+        spellCircleMat.SetColor("_Middle_Color", Color.white);
+        spellCircleMat.SetColor("_Inner_Color", Color.white);
     }
 
     private void BuildSpell()
@@ -74,9 +82,9 @@ public class Builder : MonoBehaviour
 
         //generate spell circle
         spellCircleImage.SetActive(true);
-        spellCircleMat.SetTexture("_Outer_Texture", spellEffects[0].circlePart);
-        spellCircleMat.SetTexture("_Middle_Texture", spellEffects[1].circlePart);
-        spellCircleMat.SetTexture("_Inner_Texture", spellEffects[2].circlePart);
+        spellEffects[0].AddVisualEffect(CircleLocation.OUTER, spellCircleMat);
+        spellEffects[1].AddVisualEffect(CircleLocation.MIDDLE, spellCircleMat);
+        spellEffects[2].AddVisualEffect(CircleLocation.INNER, spellCircleMat);
 
         //generate name
 
@@ -100,7 +108,7 @@ public class Builder : MonoBehaviour
         newPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = comp.gameplayEffectDesc;
         newPanel.transform.GetChild(5).GetComponent<TMP_Text>().text = comp.visualEffectDesc;
 
-        //if construction posistion is element also list its element
+        //TODO if construction posistion is element also list its element
 
         if(comp.conflictingEffects.Count > 0)
         {
@@ -129,5 +137,9 @@ public class Builder : MonoBehaviour
         Instance = this;
         spellCircleImage.SetActive(false);
         spellCircleMat = spellCircleImage.GetComponent<Renderer>().material;
+        rotationSpeed = spellCircleMat.GetFloat("_Rotation_Speed");
+        pulseSpeed = spellCircleMat.GetFloat("_Pulse_Speed");
+        minOpacity = spellCircleMat.GetFloat("_Min_Opacity");
+        maxOpacity = spellCircleMat.GetFloat("_Max_Opacity");
     }
 }

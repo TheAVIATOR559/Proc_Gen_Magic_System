@@ -22,6 +22,13 @@ public enum Elements
     SHADOW
 }
 
+public enum CircleLocation
+{
+    OUTER,
+    MIDDLE,
+    INNER
+}
+
 [CreateAssetMenu(fileName = "Default", menuName = "Effects/Default", order = 0)]
 public class Effect : ScriptableObject
 {
@@ -39,7 +46,7 @@ public class Effect : ScriptableObject
         //POPULATED IN CHILDREN
     }
 
-    public virtual void AddVisualEffect()
+    public virtual void AddVisualEffect(CircleLocation location, Material mat)
     {
         //POPULATED IN CHILDREN
     }

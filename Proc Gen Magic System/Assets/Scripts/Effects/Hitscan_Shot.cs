@@ -5,13 +5,30 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Hitscan Shot", menuName = "Effects/Hitscan Shot", order = 18)]
 public class Hitscan_Shot : Effect
 {
+    [SerializeField] private float pulseSpeed;
+    [SerializeField] private float minOpacity, maxOpacity;
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect()
+    public override void AddVisualEffect(CircleLocation location, Material mat)
     {
-        //TODO POPULATE ME
+        switch (location)
+        {
+            case CircleLocation.OUTER:
+                mat.SetTexture("_Outer_Texture", circlePart);
+                break;
+            case CircleLocation.MIDDLE:
+                mat.SetTexture("_Middle_Texture", circlePart);
+                break;
+            case CircleLocation.INNER:
+                mat.SetTexture("_Inner_Texture", circlePart);
+                break;
+        }
+
+        mat.SetFloat("_Pulse_Speed", pulseSpeed);
+        mat.SetFloat("_Min_Opacity", minOpacity);
+        mat.SetFloat("_Max_Opacity", maxOpacity);
     }
 }
