@@ -20,3 +20,5 @@ MonoBehaviour:
   visualEffectDesc: Set visual size to narrow/pointy
   conflictingEffects: 0b0d0f11
   circlePart: {fileID: 2800000, guid: 30dbbb360172d04428f238a5012f39b8, type: 3}
+  extraTexture: {fileID: 2800000, guid: 061454be61ebfbd4ba735718baede86e, type: 3}
+  extraColor: {r: 0.6486362, g: 0.5801887, b: 1, a: 0}

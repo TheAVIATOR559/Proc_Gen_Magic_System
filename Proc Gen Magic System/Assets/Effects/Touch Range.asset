@@ -20,3 +20,5 @@ MonoBehaviour:
   visualEffectDesc: Set visual size to tiny
   conflictingEffects: 0b0d0f11
   circlePart: {fileID: 2800000, guid: fd663d945947c8c4f8866d3b608845a8, type: 3}
+  extraTexture: {fileID: 2800000, guid: d01e60a62e5b2cf469a3a03c39c83af6, type: 3}
+  extraColor: {r: 0.53333336, g: 1, b: 0.58978456, a: 1}
