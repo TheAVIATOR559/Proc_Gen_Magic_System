@@ -18,5 +18,5 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Limit spell effective range to 3-5 units
   visualEffectDesc: Set visual size to small
-  conflictingEffects: 0b0d11
+  conflictingEffects: 0b0d0f11
   circlePart: {fileID: 2800000, guid: 5facdc0debe99d542a3544e14c0f5142, type: 3}

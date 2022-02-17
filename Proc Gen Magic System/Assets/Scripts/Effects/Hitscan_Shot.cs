@@ -6,7 +6,7 @@ using UnityEngine;
 public class Hitscan_Shot : Effect
 {
     [SerializeField] private float pulseSpeed;
-    [SerializeField] private float minOpacity, maxOpacity;
+    [SerializeField] private float minOpacity;
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
@@ -29,6 +29,6 @@ public class Hitscan_Shot : Effect
 
         mat.SetFloat("_Pulse_Speed", pulseSpeed);
         mat.SetFloat("_Min_Opacity", minOpacity);
-        mat.SetFloat("_Max_Opacity", maxOpacity);
+        mat.SetInt("_Use_Blinking_Effect", 1);
     }
 }

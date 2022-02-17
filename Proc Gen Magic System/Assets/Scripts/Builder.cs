@@ -50,6 +50,7 @@ public class Builder : MonoBehaviour
         spellCircleMat.SetColor("_Outer_Color", Color.white);
         spellCircleMat.SetColor("_Middle_Color", Color.white);
         spellCircleMat.SetColor("_Inner_Color", Color.white);
+        spellCircleMat.SetInt("_Use_Blinking_Effect", 0);
     }
 
     private void BuildSpell()
