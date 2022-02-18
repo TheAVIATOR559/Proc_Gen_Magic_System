@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Ice", menuName = "Effects/Ice", order = 4)]
 public class Ice : Elemental_Effect
 {
+    [SerializeField] private Texture2D iceNormal;
+
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
@@ -24,5 +26,8 @@ public class Ice : Elemental_Effect
                 mat.SetTexture("_Inner_Texture", circlePart);
                 break;
         }
+
+        mat.SetInt("_Add_Normal_Texture", 1);
+        mat.SetTexture("_Normal_Texture", iceNormal);
     }
 }

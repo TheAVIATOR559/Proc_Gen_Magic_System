@@ -53,6 +53,7 @@ public class Builder : MonoBehaviour
         spellCircleMat.SetInt("_Use_Blinking_Effect", 0);
         spellCircleMat.SetColor("_Extra_Texture_Color", Color.white);
         spellCircleMat.SetInt("_Add_Extra_Texture", 0);
+        spellCircleMat.SetInt("_Add_Normal_Texture", 0);
     }
 
     private void BuildSpell()
@@ -76,7 +77,7 @@ public class Builder : MonoBehaviour
             if (!knownConflicts.Contains(effects[selectedComp].ID))
             {
                 spellEffects.Add(effects[selectedComp]);
-                //TODO YOU FORGOT TO ADD THE NEW CONFLICTS
+                knownConflicts.AddRange(effects[selectedComp].conflictingEffects);
             }
         }
 

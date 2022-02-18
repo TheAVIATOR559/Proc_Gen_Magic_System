@@ -1,0 +1,3 @@
+FONT :: https://www.1001freefonts.com/wizard-speak.font
+
+TEXTURES :: https://textures.com/download/PBR0907/139945, https://textures.com/download/PBR0852/139509, https://textures.com/download/PBR0235/133291, https://textures.com/download/PBR0579/138828, https://textures.com/download/PBR0930/140603

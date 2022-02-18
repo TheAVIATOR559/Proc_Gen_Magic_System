@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Fire", menuName = "Effects/Fire", order = 2)]
 public class Fire : Elemental_Effect
 {
+    [SerializeField] Texture2D fireNormal;
+
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
@@ -24,5 +26,8 @@ public class Fire : Elemental_Effect
                 mat.SetTexture("_Inner_Texture", circlePart);
                 break;
         }
+
+        mat.SetInt("_Add_Normal_Texture", 1);
+        mat.SetTexture("_Normal_Texture", fireNormal);
     }
 }

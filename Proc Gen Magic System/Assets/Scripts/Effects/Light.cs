@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Light", menuName = "Effects/Light", order = 7)]
 public class Light : Elemental_Effect
 {
+    [SerializeField] private Texture2D lightNormal;
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
@@ -24,5 +25,8 @@ public class Light : Elemental_Effect
                 mat.SetTexture("_Inner_Texture", circlePart);
                 break;
         }
+
+        mat.SetInt("_Add_Normal_Texture", 1);
+        mat.SetTexture("_Normal_Texture", lightNormal);
     }
 }

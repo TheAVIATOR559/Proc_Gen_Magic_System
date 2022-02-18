@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Shadow", menuName = "Effects/Shadow", order = 9)]
 public class Shadow : Elemental_Effect
 {
+    [SerializeField] private Texture2D shadowNormal;
+
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
@@ -24,5 +26,8 @@ public class Shadow : Elemental_Effect
                 mat.SetTexture("_Inner_Texture", circlePart);
                 break;
         }
+
+        mat.SetInt("_Add_Normal_Texture", 1);
+        mat.SetTexture("_Normal_Texture", shadowNormal);
     }
 }
