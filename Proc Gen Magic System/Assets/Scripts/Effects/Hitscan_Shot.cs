@@ -12,7 +12,7 @@ public class Hitscan_Shot : Effect
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -30,5 +30,7 @@ public class Hitscan_Shot : Effect
         mat.SetFloat("_Pulse_Speed", pulseSpeed);
         mat.SetFloat("_Min_Opacity", minOpacity);
         mat.SetInt("_Use_Blinking_Effect", 1);
+
+        spell.activeColors.Add(Color.white);
     }
 }

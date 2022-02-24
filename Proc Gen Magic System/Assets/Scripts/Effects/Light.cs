@@ -11,7 +11,7 @@ public class Light : Elemental_Effect
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -28,5 +28,7 @@ public class Light : Elemental_Effect
 
         mat.SetInt("_Add_Normal_Texture", 1);
         mat.SetTexture("_Normal_Texture", lightNormal);
+
+        spell.activeColors.Add(Color.white);
     }
 }

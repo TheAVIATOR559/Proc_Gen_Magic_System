@@ -46,7 +46,7 @@ public class Effect : ScriptableObject
         //POPULATED IN CHILDREN
     }
 
-    public virtual void AddVisualEffect(CircleLocation location, Material mat)
+    public virtual void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         //POPULATED IN CHILDREN
     }

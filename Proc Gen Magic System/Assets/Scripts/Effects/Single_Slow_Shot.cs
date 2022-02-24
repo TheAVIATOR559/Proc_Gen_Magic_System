@@ -11,7 +11,7 @@ public class Single_Slow_Shot : Effect
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -27,5 +27,7 @@ public class Single_Slow_Shot : Effect
         }
 
         mat.SetFloat("_Rotation_Speed", slowAmount);
+
+        spell.activeColors.Add(Color.white);
     }
 }

@@ -20,3 +20,6 @@ MonoBehaviour:
   visualEffectDesc: Add multiple 'pellets'
   conflictingEffects: 0c0e1012
   circlePart: {fileID: 2800000, guid: 66a791afea249c147b1090ef2be06002, type: 3}
+  projectileCount: 9
+  projectileScale: 0.2
+  projectileDistance: 0.15

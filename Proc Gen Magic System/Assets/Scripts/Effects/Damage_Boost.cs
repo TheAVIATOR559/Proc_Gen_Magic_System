@@ -10,7 +10,7 @@ public class Damage_Boost : Effect
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -24,6 +24,8 @@ public class Damage_Boost : Effect
                 mat.SetTexture("_Inner_Texture", circlePart);
                 break;
         }
+
+        spell.activeColors.Add(Color.white);
     }
 }
 

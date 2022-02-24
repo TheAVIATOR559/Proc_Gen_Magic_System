@@ -12,7 +12,7 @@ public class Short_Range : Effect
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -30,5 +30,7 @@ public class Short_Range : Effect
         mat.SetTexture("_Extra_Texture", extraTexture);
         mat.SetColor("_Extra_Texture_Color", extraColor);
         mat.SetInt("_Add_Extra_Texture", 1);
+
+        spell.activeColors.Add(extraColor);
     }
 }

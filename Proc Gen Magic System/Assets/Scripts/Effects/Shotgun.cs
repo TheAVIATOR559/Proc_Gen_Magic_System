@@ -5,12 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Shotgun", menuName = "Effects/Shotgun", order = 12)]
 public class Shotgun : Effect
 {
+    [SerializeField] private int projectileCount;
+    [SerializeField] private float projectileScale;
+    [SerializeField] private float projectileDistance;
+
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -24,5 +28,10 @@ public class Shotgun : Effect
                 mat.SetTexture("_Inner_Texture", circlePart);
                 break;
         }
+
+        spell.projectileCount = projectileCount;
+        spell.projectileScale = projectileScale;
+        spell.projectileDistance = projectileDistance;
+        spell.activeColors.Add(Color.white);
     }
 }

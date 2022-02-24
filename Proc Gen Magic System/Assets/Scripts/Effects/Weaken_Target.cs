@@ -12,7 +12,7 @@ public class Weaken_Target : Effect
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -29,5 +29,7 @@ public class Weaken_Target : Effect
                 mat.SetColor("_Inner_Color", color);
                 break;
         }
+
+        spell.activeColors.Add(color);
     }
 }

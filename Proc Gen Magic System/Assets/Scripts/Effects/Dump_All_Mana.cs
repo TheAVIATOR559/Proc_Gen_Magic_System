@@ -13,7 +13,7 @@ public class Dump_All_Mana : Effect
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -30,5 +30,7 @@ public class Dump_All_Mana : Effect
 
         mat.SetFloat("_Pulse_Speed", pulseSpeed);
         mat.SetFloat("_Rotation_Speed", rotationSpeed);
+
+        spell.activeColors.Add(Color.white);
     }
 }

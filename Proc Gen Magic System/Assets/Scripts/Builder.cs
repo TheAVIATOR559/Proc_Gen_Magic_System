@@ -12,6 +12,7 @@ public class Builder : MonoBehaviour
     [SerializeField] private GameObject spellCircleImage;
     [SerializeField] private Transform effectHolder;
     [SerializeField] private List<Effect> effects;
+    [SerializeField] private Spell spell;
 
     private static Builder Instance;
 
@@ -31,6 +32,7 @@ public class Builder : MonoBehaviour
     {
         spellEffects.Clear();
         spellName = "";
+        spell.ResetSpell();
 
         //reset all UI info
         spellNameText.text = "##NAME##";
@@ -81,15 +83,11 @@ public class Builder : MonoBehaviour
             }
         }
 
-        //spellComps.Add(components[0]);
-        //spellComps.Add(components[1]);
-        //spellComps.Add(components[2]);
-
         //generate spell circle
         spellCircleImage.SetActive(true);
-        spellEffects[0].AddVisualEffect(CircleLocation.OUTER, spellCircleMat);
-        spellEffects[1].AddVisualEffect(CircleLocation.MIDDLE, spellCircleMat);
-        spellEffects[2].AddVisualEffect(CircleLocation.INNER, spellCircleMat);
+        spellEffects[0].AddVisualEffect(CircleLocation.OUTER, spellCircleMat, spell);
+        spellEffects[1].AddVisualEffect(CircleLocation.MIDDLE, spellCircleMat, spell);
+        spellEffects[2].AddVisualEffect(CircleLocation.INNER, spellCircleMat, spell);
 
         //generate name
 
@@ -100,6 +98,8 @@ public class Builder : MonoBehaviour
 
         //generate gameplay effects
 
+
+        spell.EnableSpell();
     }
 
     private void DisplayEffect(Effect comp)

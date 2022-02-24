@@ -11,7 +11,7 @@ public class Decrease_Mana_Cost : Effect
         //TODO POPULATE ME
     }
 
-    public override void AddVisualEffect(CircleLocation location, Material mat)
+    public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
     {
         switch (location)
         {
@@ -28,5 +28,7 @@ public class Decrease_Mana_Cost : Effect
 
         mat.SetFloat("_Min_Opacity", minOpacity);
         mat.SetFloat("_Max_Opacity", maxOpacity);
+
+        spell.activeColors.Add(Color.white);
     }
 }
