@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Decrease Cast Delay", menuName = "Effects/Decrease Cast Delay", order = 21)]
 public class Decrease_Cast_Delay : Effect
 {
+    [SerializeField] private float rotationSpeed;
+
     public override void AddGameplayEffect()
     {
         //TODO POPULATE ME
@@ -26,5 +28,6 @@ public class Decrease_Cast_Delay : Effect
         }
 
         spell.activeColors.Add(Color.white);
+        spell.projectileRotation = rotationSpeed;
     }
 }

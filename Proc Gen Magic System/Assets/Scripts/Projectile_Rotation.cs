@@ -18,7 +18,7 @@ public class Projectile_Rotation : MonoBehaviour
         mat = gameObject.GetComponent<Renderer>().material;
     }
 
-    public void CreateGradient(List<Color> activeColors)
+    public void CreateGradient(List<Color> activeColors, float rotationSpeed = 50)
     {
         gradient = new Gradient();
         colorKeys = new GradientColorKey[activeColors.Count];
@@ -28,11 +28,13 @@ public class Projectile_Rotation : MonoBehaviour
         {
             colorKeys[i].color = activeColors[i];
             colorKeys[i].time = (float)(i) / (activeColors.Count-1);
-            alphaKeys[i].alpha = 1f;
+            alphaKeys[i].alpha = 0.5f;
             alphaKeys[i].time = (float)(i) / (activeColors.Count-1);
         }
 
         gradient.SetKeys(colorKeys, alphaKeys);
+
+        this.rotationSpeed = rotationSpeed;
     }
 
     // Update is called once per frame
