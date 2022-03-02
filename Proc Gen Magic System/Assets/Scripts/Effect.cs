@@ -38,6 +38,10 @@ public class Effect : ScriptableObject
     public string effectDesc;
     public string gameplayEffectDesc;
     public string visualEffectDesc;
+    public bool hasNoun;
+    public string noun;
+    public bool hasAdjective;
+    public string adjective;
     public List<byte> conflictingEffects = new List<byte>();
     public Texture2D circlePart;
 

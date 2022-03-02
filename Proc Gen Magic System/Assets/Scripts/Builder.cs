@@ -90,6 +90,20 @@ public class Builder : MonoBehaviour
         spellEffects[2].AddVisualEffect(CircleLocation.INNER, spellCircleMat, spell);
 
         //generate name
+        bool usedNoun = false;
+        foreach(Effect effect in spellEffects)
+        {
+            if(!usedNoun && effect.hasNoun)
+            {
+                spellName += effect.noun;
+                usedNoun = true;
+            }
+            else
+            {
+                spellName = spellName.Insert(0, effect.adjective + " ");
+            }
+        }
+        spellNameText.text = spellName;
 
         foreach (Effect effect in spellEffects)
         {

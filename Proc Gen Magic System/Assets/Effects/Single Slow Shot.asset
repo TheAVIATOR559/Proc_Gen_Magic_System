@@ -18,6 +18,10 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: A single slow moving projectile
   visualEffectDesc: Slow visual animations
+  hasNoun: 1
+  noun: Orb
+  hasAdjective: 1
+  adjective: Marching
   conflictingEffects: 0c0e1012
   circlePart: {fileID: 2800000, guid: 760f868a93abc264d958dbb10e5ee9b2, type: 3}
   slowAmount: 0.1

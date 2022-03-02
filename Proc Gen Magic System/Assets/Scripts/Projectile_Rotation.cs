@@ -13,12 +13,14 @@ public class Projectile_Rotation : MonoBehaviour
     private GradientColorKey[] colorKeys;
     private GradientAlphaKey[] alphaKeys;
 
+    private bool useEmission = false;
+
     private void Awake()
     {
         mat = gameObject.GetComponent<Renderer>().material;
     }
 
-    public void CreateGradient(List<Color> activeColors, float rotationSpeed = 50)
+    public void CreateGradient(List<Color> activeColors, float rotationSpeed = 50, bool useEmission = false)
     {
         gradient = new Gradient();
         colorKeys = new GradientColorKey[activeColors.Count];
@@ -35,6 +37,8 @@ public class Projectile_Rotation : MonoBehaviour
         gradient.SetKeys(colorKeys, alphaKeys);
 
         this.rotationSpeed = rotationSpeed;
+        this.useEmission = useEmission;
+        mat.EnableKeyword("_EMISSION");
     }
 
     // Update is called once per frame
@@ -42,5 +46,11 @@ public class Projectile_Rotation : MonoBehaviour
     {
         transform.Rotate(Vector3.up, Time.deltaTime * rotationSpeed);
         mat.color = gradient.Evaluate(Mathf.PingPong(Time.time / gradientSpeed, 1f));
+
+        if(useEmission)
+        {
+            mat.SetColor("_EmissionColor", gradient.Evaluate(Mathf.PingPong(Time.time / gradientSpeed, 1f)));
+        }
+
     }
 }

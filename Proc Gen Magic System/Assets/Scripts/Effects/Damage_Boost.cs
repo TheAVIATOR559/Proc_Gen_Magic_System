@@ -26,6 +26,7 @@ public class Damage_Boost : Effect
         }
 
         spell.activeColors.Add(Color.white);
+        spell.useEmission = true;
     }
 }
 

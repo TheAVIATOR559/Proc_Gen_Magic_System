@@ -17,6 +17,7 @@ public class Spell : MonoBehaviour
     public float projectileScale;
     public float projectileDistance;
     public float projectileRotation;
+    public bool useEmission = false;
     public List<Color> activeColors = new List<Color>();
 
     private void Awake()
@@ -25,6 +26,7 @@ public class Spell : MonoBehaviour
         projectileScale = projectileScaleDefault;
         projectileDistance = projectileDistanceDefault;
         projectileRotation = projectileRotationDefault;
+        useEmission = false;
         projectileHolder.gameObject.SetActive(false);
     }
 
@@ -39,6 +41,7 @@ public class Spell : MonoBehaviour
         projectileScale = projectileScaleDefault;
         projectileDistance = projectileDistanceDefault;
         projectileRotation = projectileRotationDefault;
+        useEmission = false;
         activeColors.Clear();
         projectileHolder.gameObject.SetActive(false);
     }
@@ -58,7 +61,7 @@ public class Spell : MonoBehaviour
             newProj.transform.localScale = new Vector3(projectileScale, projectileScale, projectileScale);
 
             newProj.transform.Translate(projectileDistance * Mathf.Sin(i * angleOffset), projectileDistance * Mathf.Cos(i * angleOffset), 0);
-            newProj.GetComponent<Projectile_Rotation>().CreateGradient(activeColors, projectileRotation);
+            newProj.GetComponent<Projectile_Rotation>().CreateGradient(activeColors, projectileRotation, useEmission);
         }
     }
 }
