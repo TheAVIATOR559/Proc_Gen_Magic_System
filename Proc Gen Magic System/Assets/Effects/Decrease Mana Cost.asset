@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease total mana cost of spell
   visualEffectDesc: Decrease magic visual power
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Retribution
   hasAdjective: 1
   adjective: Cheap
   conflictingEffects: 16

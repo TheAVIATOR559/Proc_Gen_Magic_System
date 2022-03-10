@@ -105,6 +105,11 @@ public class Builder : MonoBehaviour
         }
         spellNameText.text = spellName;
 
+        if(!usedNoun)
+        {
+            Debug.LogWarning("NO NOUN :: " + spellName);
+        }
+
         foreach (Effect effect in spellEffects)
         {
             DisplayEffect(effect);
@@ -149,6 +154,23 @@ public class Builder : MonoBehaviour
          * 5 is visual effect
          * 6 is effect conflicts
          */
+    }
+
+    public void RunTest()
+    {
+        StartCoroutine(Test());
+    }
+
+    private IEnumerator Test()
+    {
+        Debug.Log("TEST START");
+        for (int i = 0; i < 10000; i++)
+        {
+            Debug.Log(i);
+            GenerateNewSpell();
+            yield return new WaitForEndOfFrame();
+        }
+        Debug.Log("TEST END");
     }
 
     public void Awake()

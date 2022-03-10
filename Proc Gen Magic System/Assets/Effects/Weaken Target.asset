@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease Target Damage
   visualEffectDesc: Add light color
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Rot
   hasAdjective: 1
   adjective: Weakening
   conflictingEffects: 

@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease target accuracy
   visualEffectDesc: Add shadow color
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Concealment
   hasAdjective: 1
   adjective: Blinding
   conflictingEffects: 

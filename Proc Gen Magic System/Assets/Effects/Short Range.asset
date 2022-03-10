@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Limit spell effective range to 3-5 units
   visualEffectDesc: Set visual size to small
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Shot
   hasAdjective: 1
   adjective: Short
   conflictingEffects: 0b0d0f11

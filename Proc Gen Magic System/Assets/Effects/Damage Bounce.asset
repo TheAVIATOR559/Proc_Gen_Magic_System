@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Damage bounces to neighbors
   visualEffectDesc: Adds lightning color
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Agitation
   hasAdjective: 1
   adjective: Bouncing
   conflictingEffects: 

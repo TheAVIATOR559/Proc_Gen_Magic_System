@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: No upper limit on spell range
   visualEffectDesc: Set visual size to narrow/pointy
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Sniper
   hasAdjective: 1
   adjective: Far
   conflictingEffects: 0b0d0f11

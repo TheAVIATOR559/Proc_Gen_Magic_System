@@ -20,8 +20,8 @@ MonoBehaviour:
   visualEffectDesc: Add blinking effect
   hasNoun: 1
   noun: Lance
-  hasAdjective: 0
-  adjective: 
+  hasAdjective: 1
+  adjective: Piercing
   conflictingEffects: 0c0e1012
   circlePart: {fileID: 2800000, guid: 10405f23e3d94384dad3245df1c23f9d, type: 3}
   pulseSpeed: 1.5

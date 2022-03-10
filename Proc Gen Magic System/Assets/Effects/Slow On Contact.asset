@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Slows target on contact
   visualEffectDesc: Adds ice color
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Tar
   hasAdjective: 1
   adjective: Slowing
   conflictingEffects: 

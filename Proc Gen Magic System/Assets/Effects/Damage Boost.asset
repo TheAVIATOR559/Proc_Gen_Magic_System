@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Increase total spell damage
   visualEffectDesc: Increase damage visual power
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Blow
   hasAdjective: 1
   adjective: Damaging
   conflictingEffects: 

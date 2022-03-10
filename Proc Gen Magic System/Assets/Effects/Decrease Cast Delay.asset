@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease time between firings
   visualEffectDesc: Increase orb spawn speed
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Advance
   hasAdjective: 1
   adjective: Rapid
   conflictingEffects: 

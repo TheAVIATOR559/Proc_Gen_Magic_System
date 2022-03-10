@@ -18,8 +18,8 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Limit spell effective range to 2-3 units
   visualEffectDesc: Set visual size to tiny
-  hasNoun: 0
-  noun: 
+  hasNoun: 1
+  noun: Palm
   hasAdjective: 1
   adjective: Close
   conflictingEffects: 0b0d0f11
