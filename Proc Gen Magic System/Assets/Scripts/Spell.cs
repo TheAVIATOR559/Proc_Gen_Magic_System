@@ -64,4 +64,22 @@ public class Spell : MonoBehaviour
             newProj.GetComponent<Projectile_Rotation>().CreateGradient(activeColors, projectileRotation, useEmission);
         }
     }
+
+    public void Fire()
+    {
+        //TODO PICK UP HERE
+        //StopAllCoroutines();
+        projectileHolder.position = transform.position;
+        //StartCoroutine(MoveToTarget());
+    }
+
+    [SerializeField] private Transform target;
+    private IEnumerator MoveToTarget()
+    {
+        while(Vector3.Distance(projectileHolder.position, target.position) > 0.05f)
+        {
+            projectileHolder.position = new Vector3(1, 0, 0) * Time.deltaTime;
+            yield return null;
+        }
+    }
 }

@@ -18,10 +18,9 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease time between firings
   visualEffectDesc: Increase orb spawn speed
-  hasNoun: 1
   noun: Advance
-  hasAdjective: 1
   adjective: Rapid
+  adjectivePosition: 8
   conflictingEffects: 
   circlePart: {fileID: 2800000, guid: 9c125d9ab7fb30b48adcde3d80138d84, type: 3}
   rotationSpeed: 85

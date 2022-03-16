@@ -29,6 +29,20 @@ public enum CircleLocation
     INNER
 }
 
+public enum AdjectivePosition
+{
+    OPINION,
+    SIZE,
+    PHYS_QUALITY,
+    SHAPE,
+    AGE,
+    COLOR,
+    ORIGIN,
+    MATERIAL,
+    TYPE,
+    PURPOSE
+}
+
 [CreateAssetMenu(fileName = "Default", menuName = "Effects/Default", order = 0)]
 public class Effect : ScriptableObject
 {
@@ -38,10 +52,9 @@ public class Effect : ScriptableObject
     public string effectDesc;
     public string gameplayEffectDesc;
     public string visualEffectDesc;
-    public bool hasNoun;
     public string noun;
-    public bool hasAdjective;
     public string adjective;
+    public AdjectivePosition adjectivePosition;
     public List<byte> conflictingEffects = new List<byte>();
     public Texture2D circlePart;
 

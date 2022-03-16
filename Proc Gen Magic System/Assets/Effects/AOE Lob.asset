@@ -18,10 +18,9 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Projectile travels in an arc and explodes on contact
   visualEffectDesc: Sets visual size to large
-  hasNoun: 1
   noun: Arc
-  hasAdjective: 1
   adjective: Arcing
+  adjectivePosition: 2
   conflictingEffects: 0b0d0e0f1112
   circlePart: {fileID: 2800000, guid: 22aa91d350b27574dadadde5de0072b7, type: 3}
   extraTexture: {fileID: 2800000, guid: 43994033efdfbfb4c8ba3458a3266894, type: 3}

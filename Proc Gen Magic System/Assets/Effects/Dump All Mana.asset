@@ -18,10 +18,9 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Increase mana cost to max and increase damage proportionally
   visualEffectDesc: Max out magic visual power
-  hasNoun: 1
   noun: Cannon
-  hasAdjective: 1
   adjective: Blasting
+  adjectivePosition: 9
   conflictingEffects: 1416
   circlePart: {fileID: 2800000, guid: 55d35202678db774b8dab7ccdf061fd9, type: 3}
   pulseSpeed: 5

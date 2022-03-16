@@ -18,10 +18,9 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: No upper limit on spell range
   visualEffectDesc: Set visual size to narrow/pointy
-  hasNoun: 1
   noun: Sniper
-  hasAdjective: 1
   adjective: Far
+  adjectivePosition: 6
   conflictingEffects: 0b0d0f11
   circlePart: {fileID: 2800000, guid: 30dbbb360172d04428f238a5012f39b8, type: 3}
   extraTexture: {fileID: 2800000, guid: 061454be61ebfbd4ba735718baede86e, type: 3}

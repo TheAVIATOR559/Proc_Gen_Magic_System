@@ -18,10 +18,9 @@ MonoBehaviour:
   effectDesc: POPULATE ME
   gameplayEffectDesc: Damage bounces to neighbors
   visualEffectDesc: Adds lightning color
-  hasNoun: 1
   noun: Agitation
-  hasAdjective: 1
   adjective: Bouncing
+  adjectivePosition: 9
   conflictingEffects: 
   circlePart: {fileID: 2800000, guid: 3589f655e79efdb40b6e825b967e3aa1, type: 3}
   color: {r: 0.76862746, g: 0.85882354, b: 0, a: 0}

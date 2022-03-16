@@ -10,9 +10,11 @@ public class Builder : MonoBehaviour
 
     [SerializeField] private TMP_Text spellNameText;
     [SerializeField] private GameObject spellCircleImage;
+    [SerializeField] private Renderer spellCircleBeta;
+    [SerializeField] private Spell spell;
+    [SerializeField] private Spell spellBeta;
     [SerializeField] private Transform effectHolder;
     [SerializeField] private List<Effect> effects;
-    [SerializeField] private Spell spell;
 
     private static Builder Instance;
 
@@ -20,6 +22,7 @@ public class Builder : MonoBehaviour
     public List<Effect> spellEffects;
 
     private Material spellCircleMat;
+    private Material spellCircleBetaMat;
     private float rotationSpeed, pulseSpeed, minOpacity, maxOpacity;
 
     public static void GenerateNewSpell()
@@ -33,6 +36,7 @@ public class Builder : MonoBehaviour
         spellEffects.Clear();
         spellName = "";
         spell.ResetSpell();
+        spellBeta.ResetSpell();
 
         //reset all UI info
         spellNameText.text = "##NAME##";
@@ -56,6 +60,18 @@ public class Builder : MonoBehaviour
         spellCircleMat.SetColor("_Extra_Texture_Color", Color.white);
         spellCircleMat.SetInt("_Add_Extra_Texture", 0);
         spellCircleMat.SetInt("_Add_Normal_Texture", 0);
+
+        spellCircleBetaMat.SetFloat("_Rotation_Speed", rotationSpeed);
+        spellCircleBetaMat.SetFloat("_Pulse_Speed", pulseSpeed);
+        spellCircleBetaMat.SetFloat("_Min_Opacity", minOpacity);
+        spellCircleBetaMat.SetFloat("_Max_Opacity", maxOpacity);
+        spellCircleBetaMat.SetColor("_Outer_Color", Color.white);
+        spellCircleBetaMat.SetColor("_Middle_Color", Color.white);
+        spellCircleBetaMat.SetColor("_Inner_Color", Color.white);
+        spellCircleBetaMat.SetInt("_Use_Blinking_Effect", 0);
+        spellCircleBetaMat.SetColor("_Extra_Texture_Color", Color.white);
+        spellCircleBetaMat.SetInt("_Add_Extra_Texture", 0);
+        spellCircleBetaMat.SetInt("_Add_Normal_Texture", 0);
     }
 
     private void BuildSpell()
@@ -85,30 +101,36 @@ public class Builder : MonoBehaviour
 
         //generate spell circle
         spellCircleImage.SetActive(true);
+        spellCircleBeta.gameObject.SetActive(true);
         spellEffects[0].AddVisualEffect(CircleLocation.OUTER, spellCircleMat, spell);
         spellEffects[1].AddVisualEffect(CircleLocation.MIDDLE, spellCircleMat, spell);
         spellEffects[2].AddVisualEffect(CircleLocation.INNER, spellCircleMat, spell);
+        spellEffects[0].AddVisualEffect(CircleLocation.OUTER, spellCircleBetaMat, spellBeta);
+        spellEffects[1].AddVisualEffect(CircleLocation.MIDDLE, spellCircleBetaMat, spellBeta);
+        spellEffects[2].AddVisualEffect(CircleLocation.INNER, spellCircleBetaMat, spellBeta);
 
         //generate name
-        bool usedNoun = false;
-        foreach(Effect effect in spellEffects)
-        {
-            if(!usedNoun && effect.hasNoun)
-            {
-                spellName += effect.noun;
-                usedNoun = true;
-            }
-            else
-            {
-                spellName = spellName.Insert(0, effect.adjective + " ");
-            }
-        }
-        spellNameText.text = spellName;
+        spellName = spellEffects[0].noun;
 
-        if(!usedNoun)
+        if(spellEffects[1].adjectivePosition < spellEffects[2].adjectivePosition)
         {
-            Debug.LogWarning("NO NOUN :: " + spellName);
+            spellName = spellName.Insert(0, spellEffects[2].adjective + " ");
+            spellName = spellName.Insert(0, spellEffects[1].adjective + " ");
+            Debug.Log(spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")::" + spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")");
         }
+        else if(spellEffects[1].ID == spellEffects[2].ID)
+        {
+            spellName = spellName.Insert(0, spellEffects[1].adjective + " ");
+            Debug.Log(spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")::" + spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")");
+        }
+        else
+        {
+            spellName = spellName.Insert(0, spellEffects[1].adjective + " ");
+            spellName = spellName.Insert(0, spellEffects[2].adjective + " ");
+            Debug.Log(spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")::" + spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")");
+        }
+
+        spellNameText.text = spellName;
 
         foreach (Effect effect in spellEffects)
         {
@@ -119,6 +141,9 @@ public class Builder : MonoBehaviour
 
 
         spell.EnableSpell();
+        spellBeta.EnableSpell();
+
+        spellBeta.Fire();
     }
 
     private void DisplayEffect(Effect comp)
@@ -177,7 +202,9 @@ public class Builder : MonoBehaviour
     {
         Instance = this;
         spellCircleImage.SetActive(false);
+        spellCircleBeta.gameObject.SetActive(false);
         spellCircleMat = spellCircleImage.GetComponent<Renderer>().material;
+        spellCircleBetaMat = spellCircleBeta.material;
         rotationSpeed = spellCircleMat.GetFloat("_Rotation_Speed");
         pulseSpeed = spellCircleMat.GetFloat("_Pulse_Speed");
         minOpacity = spellCircleMat.GetFloat("_Min_Opacity");
