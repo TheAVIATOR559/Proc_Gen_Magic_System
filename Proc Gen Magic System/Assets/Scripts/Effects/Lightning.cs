@@ -7,7 +7,7 @@ public class Lightning : Elemental_Effect
 {
     [SerializeField] private Texture2D lightningNormal;
 
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

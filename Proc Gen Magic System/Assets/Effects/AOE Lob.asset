@@ -25,3 +25,5 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: 22aa91d350b27574dadadde5de0072b7, type: 3}
   extraTexture: {fileID: 2800000, guid: 43994033efdfbfb4c8ba3458a3266894, type: 3}
   extraColor: {r: 1, g: 0.3066038, b: 0.3066038, a: 0}
+  arcExplosion: {fileID: 5116859493734689438, guid: 385793c9f449fec41bbb742ed3864494,
+    type: 3}

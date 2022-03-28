@@ -8,7 +8,7 @@ public class Dump_All_Mana : Effect
     [SerializeField] private float pulseSpeed;
     [SerializeField] private float rotationSpeed;
 
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

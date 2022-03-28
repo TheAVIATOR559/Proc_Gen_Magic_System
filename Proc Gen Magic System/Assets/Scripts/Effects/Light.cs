@@ -6,7 +6,7 @@ using UnityEngine;
 public class Light : Elemental_Effect
 {
     [SerializeField] private Texture2D lightNormal;
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

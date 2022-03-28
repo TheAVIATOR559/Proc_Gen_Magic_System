@@ -5,11 +5,12 @@ using System.Linq;
 
 public class Spell : MonoBehaviour
 {
+    [SerializeField] private bool canFire = false;
     [SerializeField] private int projectileCountDefault = 1;
     [SerializeField] private float projectileScaleDefault = 1;
     [SerializeField] private float projectileDistanceDefault = 0f;
     [SerializeField] private float projectileRotationDefault = 50f;
-    [SerializeField] private Transform projectileHolder;
+    [SerializeField] public Projectile projectileHolder;
 
     [SerializeField] private GameObject projectilePrefab;
 
@@ -32,7 +33,7 @@ public class Spell : MonoBehaviour
 
     public void ResetSpell()
     {
-        foreach(Transform child in projectileHolder)
+        foreach(Transform child in projectileHolder.transform)
         {
             Destroy(child.gameObject);
         }
@@ -43,6 +44,7 @@ public class Spell : MonoBehaviour
         projectileRotation = projectileRotationDefault;
         useEmission = false;
         activeColors.Clear();
+        projectileHolder.Reset();
         projectileHolder.gameObject.SetActive(false);
     }
 
@@ -57,7 +59,7 @@ public class Spell : MonoBehaviour
 
         for(int i = 0; i < projectileCount; i++)
         {
-            GameObject newProj = Instantiate(projectilePrefab, projectileHolder);
+            GameObject newProj = Instantiate(projectilePrefab, projectileHolder.transform);
             newProj.transform.localScale = new Vector3(projectileScale, projectileScale, projectileScale);
 
             newProj.transform.Translate(projectileDistance * Mathf.Sin(i * angleOffset), projectileDistance * Mathf.Cos(i * angleOffset), 0);
@@ -65,21 +67,12 @@ public class Spell : MonoBehaviour
         }
     }
 
-    public void Fire()
+    private void Update()
     {
-        //TODO PICK UP HERE
-        //StopAllCoroutines();
-        projectileHolder.position = transform.position;
-        //StartCoroutine(MoveToTarget());
-    }
-
-    [SerializeField] private Transform target;
-    private IEnumerator MoveToTarget()
-    {
-        while(Vector3.Distance(projectileHolder.position, target.position) > 0.05f)
+        if(canFire && Input.GetKeyDown(KeyCode.F))
         {
-            projectileHolder.position = new Vector3(1, 0, 0) * Time.deltaTime;
-            yield return null;
+            projectileHolder.Rearm();
+            projectileHolder.Fire();
         }
     }
 }

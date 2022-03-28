@@ -7,7 +7,7 @@ public class Decrease_Cast_Delay : Effect
 {
     [SerializeField] private float rotationSpeed;
 
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

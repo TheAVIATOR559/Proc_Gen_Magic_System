@@ -7,9 +7,11 @@ public class AOE_Lob : Effect
 {
     [SerializeField] Texture2D extraTexture;
     [SerializeField] Color extraColor;
-    public override void AddGameplayEffect()
+    [SerializeField] GameObject arcExplosion;
+    public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        spell.projectileHolder.useArc = true;
+        spell.projectileHolder.AddOnContactEffect(arcExplosion);
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

@@ -7,7 +7,7 @@ public class Shadow : Elemental_Effect
 {
     [SerializeField] private Texture2D shadowNormal;
 
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

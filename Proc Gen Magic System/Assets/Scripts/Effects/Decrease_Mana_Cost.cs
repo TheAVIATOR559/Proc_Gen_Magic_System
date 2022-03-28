@@ -6,7 +6,7 @@ using UnityEngine;
 public class Decrease_Mana_Cost : Effect
 {
     [SerializeField] private float minOpacity, maxOpacity;
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

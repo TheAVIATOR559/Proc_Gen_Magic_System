@@ -7,7 +7,7 @@ public class Long_Range : Effect
 {
     [SerializeField] Texture2D extraTexture;
     [SerializeField] Color extraColor;
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

@@ -7,7 +7,7 @@ public class Fire : Elemental_Effect
 {
     [SerializeField] Texture2D fireNormal;
 
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

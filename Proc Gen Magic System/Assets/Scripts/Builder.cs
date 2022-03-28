@@ -138,12 +138,14 @@ public class Builder : MonoBehaviour
         }
 
         //generate gameplay effects
-
+        spellEffects[0].AddGameplayEffect(spellBeta);
+        spellEffects[1].AddGameplayEffect(spellBeta);
+        spellEffects[2].AddGameplayEffect(spellBeta);
 
         spell.EnableSpell();
         spellBeta.EnableSpell();
 
-        spellBeta.Fire();
+        //spellBeta.Fire();
     }
 
     private void DisplayEffect(Effect comp)

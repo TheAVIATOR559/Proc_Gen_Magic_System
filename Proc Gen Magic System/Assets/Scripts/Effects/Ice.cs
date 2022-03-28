@@ -7,7 +7,7 @@ public class Ice : Elemental_Effect
 {
     [SerializeField] private Texture2D iceNormal;
 
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

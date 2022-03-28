@@ -6,7 +6,7 @@ using UnityEngine;
 public class Explosion : Effect
 {
     [SerializeField] private Color color;
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

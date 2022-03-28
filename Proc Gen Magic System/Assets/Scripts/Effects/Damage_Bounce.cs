@@ -7,7 +7,7 @@ public class Damage_Bounce : Effect
 {
     [SerializeField] private Color color;
 
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }

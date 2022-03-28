@@ -58,7 +58,7 @@ public class Effect : ScriptableObject
     public List<byte> conflictingEffects = new List<byte>();
     public Texture2D circlePart;
 
-    public virtual void AddGameplayEffect()
+    public virtual void AddGameplayEffect(Spell spell)
     {
         //POPULATED IN CHILDREN
     }

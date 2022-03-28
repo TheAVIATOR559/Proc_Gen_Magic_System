@@ -9,7 +9,7 @@ public class Shotgun : Effect
     [SerializeField] private float projectileScale;
     [SerializeField] private float projectileDistance;
 
-    public override void AddGameplayEffect()
+    public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
     }
