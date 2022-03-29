@@ -6,10 +6,12 @@ using UnityEngine;
 public class Fire : Elemental_Effect
 {
     [SerializeField] Texture2D fireNormal;
+    [SerializeField] DOT dot;
 
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        //TODO add particle effect
+        spell.projectileHolder.AddOnContactDOT(dot.CopyOf());
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

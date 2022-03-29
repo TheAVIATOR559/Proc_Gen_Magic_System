@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Fire
   ID: 1
   constructionPosition: 2
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Adds burning DOT
   visualEffectDesc: Add fire look
   noun: Fireball
@@ -25,3 +24,8 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: cf49926ffd1621c44bd87bdcfb567944, type: 3}
   elements: 1
   fireNormal: {fileID: 2800000, guid: 61473ff23dd938f4986d67fd42d2aece, type: 3}
+  dot:
+    Type: 0
+    DamagePerTick: 2
+    Duration: 10
+    Target: {fileID: 0}

@@ -26,6 +26,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private State currState = State.NOT_MOVING;
 
     private List<GameObject> OnContactEffects = new List<GameObject>();
+    [SerializeField] private List<DOT> OnContactDots = new List<DOT>();
 
     public void Reset()
     {
@@ -33,6 +34,7 @@ public class Projectile : MonoBehaviour
         useArc = useArcDEFAULT;
         speed = speedDEFAULT;
         OnContactEffects.Clear();
+        OnContactDots.Clear();
         currState = State.NOT_MOVING;
     }
 
@@ -86,6 +88,11 @@ public class Projectile : MonoBehaviour
             Instantiate(effect, transform.position, Quaternion.identity);
         }
 
+        foreach(DOT dot in OnContactDots)
+        {
+            Target.AddDOT(dot);
+        }
+
         Debug.Log("KABOOM");
         Rearm();
     }
@@ -107,5 +114,10 @@ public class Projectile : MonoBehaviour
     public void AddOnContactEffect(GameObject effect)
     {
         OnContactEffects.Add(effect);
+    }
+
+    public void AddOnContactDOT(DOT dot)
+    {
+        OnContactDots.Add(dot);
     }
 }

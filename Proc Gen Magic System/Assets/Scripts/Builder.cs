@@ -116,18 +116,18 @@ public class Builder : MonoBehaviour
         {
             spellName = spellName.Insert(0, spellEffects[2].adjective + " ");
             spellName = spellName.Insert(0, spellEffects[1].adjective + " ");
-            Debug.Log(spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")::" + spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")");
+            //Debug.Log(spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")::" + spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")");
         }
         else if(spellEffects[1].ID == spellEffects[2].ID)
         {
             spellName = spellName.Insert(0, spellEffects[1].adjective + " ");
-            Debug.Log(spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")::" + spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")");
+            //Debug.Log(spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")::" + spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")");
         }
         else
         {
             spellName = spellName.Insert(0, spellEffects[1].adjective + " ");
             spellName = spellName.Insert(0, spellEffects[2].adjective + " ");
-            Debug.Log(spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")::" + spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")");
+            //Debug.Log(spellEffects[2].adjectivePosition + "(" + (int)spellEffects[2].adjectivePosition + ")::" + spellEffects[1].adjectivePosition + "(" + (int)spellEffects[1].adjectivePosition + ")");
         }
 
         spellNameText.text = spellName;
@@ -155,9 +155,8 @@ public class Builder : MonoBehaviour
         newPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = comp.effectName;
         newPanel.transform.GetChild(1).GetComponent<TMP_Text>().text += comp.ID.ToString();
         newPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = comp.constructionPosition.ToString();
-        newPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = comp.effectDesc;
-        newPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = comp.gameplayEffectDesc;
-        newPanel.transform.GetChild(5).GetComponent<TMP_Text>().text = comp.visualEffectDesc;
+        newPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = comp.gameplayEffectDesc;
+        newPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = comp.visualEffectDesc;
 
         //TODO if construction posistion is element also list its element
 
@@ -165,12 +164,12 @@ public class Builder : MonoBehaviour
         {
             foreach(byte value in comp.conflictingEffects)
             {
-                newPanel.transform.GetChild(6).GetComponent<TMP_Text>().text += value + ", ";
+                newPanel.transform.GetChild(5).GetComponent<TMP_Text>().text += value + ", ";
             }
         }
         else
         {
-            newPanel.transform.GetChild(6).GetComponent<TMP_Text>().text += "None";
+            newPanel.transform.GetChild(5).GetComponent<TMP_Text>().text += "None";
         }
 
         /* 0 is name

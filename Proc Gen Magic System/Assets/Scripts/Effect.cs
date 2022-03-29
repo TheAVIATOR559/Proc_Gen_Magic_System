@@ -49,7 +49,6 @@ public class Effect : ScriptableObject
     public string effectName;
     public byte ID;
     public Construction_Position constructionPosition;
-    public string effectDesc;
     public string gameplayEffectDesc;
     public string visualEffectDesc;
     public string noun;

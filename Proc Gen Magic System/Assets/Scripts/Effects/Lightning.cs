@@ -6,10 +6,12 @@ using UnityEngine;
 public class Lightning : Elemental_Effect
 {
     [SerializeField] private Texture2D lightningNormal;
+    [SerializeField] DOT dot;
 
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        //TODO add particle effect
+        spell.projectileHolder.AddOnContactDOT(dot.CopyOf());
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
