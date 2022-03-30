@@ -9,12 +9,14 @@ public class DOT
     {
         FIRE,
         ICE,
-        SHOCK
+        SHOCK,
+        BLIND
     }
 
     public DOTType Type;
     public int DamagePerTick;
     public int Duration;
+    public GameObject conncectedEffect;
 
     public Target Target;
 
@@ -42,6 +44,8 @@ public class DOT
 
     public DOT CopyOf()
     {
-        return new DOT(Type, DamagePerTick, Duration);
+        DOT newDot = new DOT(Type, DamagePerTick, Duration);
+        newDot.conncectedEffect = this.conncectedEffect;
+        return newDot;
     }
 }

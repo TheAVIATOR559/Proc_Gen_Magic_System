@@ -6,10 +6,11 @@ using UnityEngine;
 public class Blind_Target: Effect
 {
     [SerializeField] private Color color;
+    [SerializeField] DOT dot;
 
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        spell.projectileHolder.AddOnContactDOT(dot.CopyOf());
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Blind Target
   ID: 10
   constructionPosition: 2
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease target accuracy
   visualEffectDesc: Add shadow color
   noun: Concealment
@@ -24,3 +23,10 @@ MonoBehaviour:
   conflictingEffects: 
   circlePart: {fileID: 2800000, guid: b92c90030c0cff34583cacb740953973, type: 3}
   color: {r: 0.4862745, g: 0.2, b: 0.6509804, a: 0}
+  dot:
+    Type: 3
+    DamagePerTick: 25
+    Duration: 20
+    conncectedEffect: {fileID: 7038745060019600149, guid: 0506d675ea2459048b9c4d6f7cddfcb3,
+      type: 3}
+    Target: {fileID: 0}

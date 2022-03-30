@@ -10,7 +10,6 @@ public class Fire : Elemental_Effect
 
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO add particle effect
         spell.projectileHolder.AddOnContactDOT(dot.CopyOf());
     }
 

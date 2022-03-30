@@ -6,6 +6,7 @@ using PathCreation;
 public class Projectile : MonoBehaviour
 {
     public bool useArc;
+    public bool useCluster;
     public float speed;
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
@@ -13,6 +14,7 @@ public class Projectile : MonoBehaviour
     private float distanceTravelled;
 
     private bool useArcDEFAULT = false;
+    private bool useClusterDEFAULT = false;
     private float speedDEFAULT = 1;
 
     private enum State
@@ -28,21 +30,30 @@ public class Projectile : MonoBehaviour
     private List<GameObject> OnContactEffects = new List<GameObject>();
     [SerializeField] private List<DOT> OnContactDots = new List<DOT>();
 
+    
+
     public void Reset()
     {
         transform.position = transform.parent.position;
         useArc = useArcDEFAULT;
+        useCluster = useClusterDEFAULT;
         speed = speedDEFAULT;
         OnContactEffects.Clear();
         OnContactDots.Clear();
         currState = State.NOT_MOVING;
     }
 
-    public void Rearm()
+    public void Rearm()//todo need to reset children position and states after cluster activation
     {
         transform.position = transform.parent.position;
+        transform.rotation = new Quaternion(0, 0, 0, 0);
         distanceTravelled = 0;
         currState = State.NOT_MOVING;
+
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Projectile_Rotation>().Reset();
+        }
     }
 
     public void Fire()
@@ -93,8 +104,13 @@ public class Projectile : MonoBehaviour
             Target.AddDOT(dot);
         }
 
-        Debug.Log("KABOOM");
-        Rearm();
+        if(useCluster)
+        {
+            Scatter();
+        }
+
+        //Debug.Log("KABOOM");
+        //Rearm();//TODO need to delay this by a few seconds
     }
 
     private void Move()
@@ -119,5 +135,13 @@ public class Projectile : MonoBehaviour
     public void AddOnContactDOT(DOT dot)
     {
         OnContactDots.Add(dot);
+    }
+
+    private void Scatter()
+    {
+        foreach(Transform child in transform)
+        {
+            child.GetComponent<Projectile_Rotation>().SplitFromParent();
+        }
     }
 }

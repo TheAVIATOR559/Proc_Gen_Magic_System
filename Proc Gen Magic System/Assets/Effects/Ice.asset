@@ -28,4 +28,6 @@ MonoBehaviour:
     Type: 1
     DamagePerTick: 2
     Duration: 10
+    conncectedEffect: {fileID: 6775616322195865803, guid: f6da737164c881746a97457d0b9edcec,
+      type: 3}
     Target: {fileID: 0}

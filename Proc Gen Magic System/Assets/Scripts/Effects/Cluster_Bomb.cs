@@ -12,6 +12,7 @@ public class Cluster_Bomb : Effect
     public override void AddGameplayEffect(Spell spell)
     {
         //TODO POPULATE ME
+        spell.projectileHolder.useCluster = true;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

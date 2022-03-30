@@ -92,6 +92,10 @@ public class Target : MonoBehaviour
     private float m_moveSpeed = 1f;
     private int m_damage = 10;
 
+    private float accDEFAULT = 0.8f;
+    private float movSpdDEFAULT = 1f;
+    private int damDEFAULT = 10;
+
     [SerializeField] private List<DOT> activeDots = new List<DOT>();
     public static Target instance;
 
@@ -109,16 +113,27 @@ public class Target : MonoBehaviour
     {
         int index = instance.activeDots.FindIndex(d => d.Type == dot.Type);
 
-        Debug.Log(dot.DamagePerTick + "::" + dot.Duration);
+        //Debug.Log(dot.DamagePerTick + "::" + dot.Duration);
 
         if(index >= 0)
         {
             instance.activeDots[index].MergeDOT(dot);
+
+            if (instance.activeDots[index].Type == DOT.DOTType.BLIND)
+            {
+                instance.Accuracy = instance.accDEFAULT - (instance.activeDots[index].DamagePerTick / 100f);
+            }
         }
         else
         {
             instance.activeDots.Add(dot.CopyOf());
-        }
+            instance.activeDots[instance.activeDots.Count-1].conncectedEffect = Instantiate(dot.conncectedEffect, instance.transform.position, Quaternion.identity);
+
+            if (instance.activeDots[instance.activeDots.Count - 1].Type == DOT.DOTType.BLIND)
+            {
+                instance.Accuracy = instance.accDEFAULT - (instance.activeDots[instance.activeDots.Count - 1].DamagePerTick / 100f);
+            }
+        }        
     }
 
     private IEnumerator TickDots()
@@ -129,14 +144,23 @@ public class Target : MonoBehaviour
             {
                 if(activeDots[i].Duration <= 0)
                 {
+                    if(activeDots[i].Type == DOT.DOTType.BLIND)
+                    {
+                        Accuracy = accDEFAULT;
+                    }
+                    Destroy(activeDots[i].conncectedEffect);
                     activeDots.RemoveAt(i);
+                    continue;
                 }
-                else
+                else if(activeDots[i].Type != DOT.DOTType.BLIND)
                 {
                     Health -= activeDots[i].DamagePerTick;
-                    activeDots[i].Duration--;
                 }
+
+                activeDots[i].Duration--;
             }
+
+            //Debug.Log(Accuracy);
 
             yield return new WaitForSeconds(1f);
         }
