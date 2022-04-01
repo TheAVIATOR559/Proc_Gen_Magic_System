@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Light
   ID: 7
   constructionPosition: 2
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Increase damage per kill
   visualEffectDesc: Adds light look
   noun: Light
@@ -25,3 +24,4 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: d76648a0ae11366429f6d057c6c7564a, type: 3}
   elements: 4
   lightNormal: {fileID: 2800000, guid: 9c720e4908e2d314ab0952deb00017aa, type: 3}
+  manaCost: 10

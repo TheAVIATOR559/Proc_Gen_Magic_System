@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Slow on Contact
   ID: 4
   constructionPosition: 2
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Slows target on contact
   visualEffectDesc: Adds ice color
   noun: Tar
@@ -24,3 +23,4 @@ MonoBehaviour:
   conflictingEffects: 
   circlePart: {fileID: 2800000, guid: 092223021626f7e4bbcafbb029eb3f07, type: 3}
   color: {r: 0, g: 0.61960787, b: 0.7176471, a: 0}
+  manaCost: 15

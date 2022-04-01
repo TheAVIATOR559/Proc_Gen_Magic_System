@@ -7,9 +7,11 @@ public class Lightning : Elemental_Effect
 {
     [SerializeField] private Texture2D lightningNormal;
     [SerializeField] DOT dot;
+    [SerializeField] int manaCost;
 
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         spell.projectileHolder.AddOnContactDOT(dot.CopyOf());
     }
 

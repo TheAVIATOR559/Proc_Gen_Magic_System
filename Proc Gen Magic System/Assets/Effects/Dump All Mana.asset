@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Dump All Mana
   ID: 22
   constructionPosition: 0
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Increase mana cost to max and increase damage proportionally
   visualEffectDesc: Max out magic visual power
   noun: Cannon
@@ -25,3 +24,6 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: 55d35202678db774b8dab7ccdf061fd9, type: 3}
   pulseSpeed: 5
   rotationSpeed: 1
+  damageIncreaseAmount: 50
+  OnContactEffect: {fileID: 1909711364760180591, guid: 60ef9536773719f4892ed7d37c30a04f,
+    type: 3}

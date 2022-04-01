@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: AOE Lob
   ID: 15
   constructionPosition: 1
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Projectile travels in an arc and explodes on contact
   visualEffectDesc: Sets visual size to large
   noun: Arc
@@ -27,3 +26,4 @@ MonoBehaviour:
   extraColor: {r: 1, g: 0.3066038, b: 0.3066038, a: 0}
   arcExplosion: {fileID: 5116859493734689438, guid: 385793c9f449fec41bbb742ed3864494,
     type: 3}
+  manaCost: 20

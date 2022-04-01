@@ -8,9 +8,11 @@ public class Shotgun : Effect
     [SerializeField] private int projectileCount;
     [SerializeField] private float projectileScale;
     [SerializeField] private float projectileDistance;
+    [SerializeField] int manaCost;
 
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         //TODO POPULATE ME
     }
 

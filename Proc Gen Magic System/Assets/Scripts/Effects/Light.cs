@@ -6,8 +6,10 @@ using UnityEngine;
 public class Light : Elemental_Effect
 {
     [SerializeField] private Texture2D lightNormal;
+    [SerializeField] int manaCost;
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         //TODO POPULATE ME
     }
 

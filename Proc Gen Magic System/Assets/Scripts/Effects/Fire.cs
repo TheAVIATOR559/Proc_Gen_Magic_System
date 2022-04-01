@@ -7,9 +7,11 @@ public class Fire : Elemental_Effect
 {
     [SerializeField] Texture2D fireNormal;
     [SerializeField] DOT dot;
+    [SerializeField] int manaCost;
 
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         spell.projectileHolder.AddOnContactDOT(dot.CopyOf());
     }
 

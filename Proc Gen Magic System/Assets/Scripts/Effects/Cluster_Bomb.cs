@@ -8,10 +8,11 @@ public class Cluster_Bomb : Effect
     [SerializeField] private int projectileCount;
     [SerializeField] private float projectileScale;
     [SerializeField] private float projectileDistance;
+    [SerializeField] int manaCost;
 
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        spell.projectileHolder.manaCost += manaCost;
         spell.projectileHolder.useCluster = true;
     }
 

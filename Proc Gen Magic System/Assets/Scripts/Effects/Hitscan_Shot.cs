@@ -7,8 +7,10 @@ public class Hitscan_Shot : Effect
 {
     [SerializeField] private float pulseSpeed;
     [SerializeField] private float minOpacity;
+    [SerializeField] int manaCost;
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         //TODO POPULATE ME
     }
 

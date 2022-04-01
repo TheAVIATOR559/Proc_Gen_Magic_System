@@ -5,9 +5,14 @@ using PathCreation;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private bool canFire = false;
+
     public bool useArc;
     public bool useCluster;
+    public bool useManaDump;
     public float speed;
+    public int damage;
+    public float castDelay;
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
 
@@ -15,8 +20,10 @@ public class Projectile : MonoBehaviour
 
     private bool useArcDEFAULT = false;
     private bool useClusterDEFAULT = false;
+    private bool useManaDumpDEFAULT = false;
     private float speedDEFAULT = 1;
-
+    private int damageDEFAULT = 10;
+    private float castDelayDEFAULT = 2f;
     private enum State
     {
         NOT_MOVING,
@@ -29,8 +36,14 @@ public class Projectile : MonoBehaviour
 
     private List<GameObject> OnContactEffects = new List<GameObject>();
     [SerializeField] private List<DOT> OnContactDots = new List<DOT>();
+    [SerializeField] private GameObject defaultOnContactEffect;
 
-    
+    private Target target;
+
+    public int currentMana;
+    [SerializeField] private int maxMana = 100;
+    [SerializeField] private int manaRegenRate = 10;
+    public int manaCost;
 
     public void Reset()
     {
@@ -38,6 +51,11 @@ public class Projectile : MonoBehaviour
         useArc = useArcDEFAULT;
         useCluster = useClusterDEFAULT;
         speed = speedDEFAULT;
+        damage = damageDEFAULT;
+        castDelay = castDelayDEFAULT;
+        useManaDump = useManaDumpDEFAULT;
+        currentMana = maxMana;
+        manaCost = 0;
         OnContactEffects.Clear();
         OnContactDots.Clear();
         currState = State.NOT_MOVING;
@@ -52,17 +70,41 @@ public class Projectile : MonoBehaviour
 
         foreach (Transform child in transform)
         {
+            child.gameObject.SetActive(true);
             child.GetComponent<Projectile_Rotation>().Reset();
         }
     }
 
     public void Fire()
     {
+        if(useManaDump)
+        {
+            currentMana = 0;
+            manaCost = maxMana;
+        }
+        else
+        {
+            currentMana -= manaCost;
+        }
         currState = State.MOVING;
+        canFire = false;
     }
 
     private void Update()
     {
+        if (canFire && Input.GetKeyDown(KeyCode.F))
+        {
+            if(currentMana >= manaCost)
+            {
+                Rearm();
+                Fire();
+            }
+            else
+            {
+                Debug.Log("Not enough mana");
+            }
+        }
+
         switch (currState)
         {
             case State.NOT_MOVING:
@@ -88,15 +130,23 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         currState = State.CONTACTED;
+        target = other.GetComponent<Target>();
     }
 
     private void Activate()
     {
         currState = State.ACTIVATED;
 
-        foreach(GameObject effect in OnContactEffects)
+        if(OnContactEffects.Count == 0)
         {
-            Instantiate(effect, transform.position, Quaternion.identity);
+            Instantiate(defaultOnContactEffect, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            foreach (GameObject effect in OnContactEffects)
+            {
+                Instantiate(effect, transform.position, Quaternion.identity);
+            }
         }
 
         foreach(DOT dot in OnContactDots)
@@ -108,9 +158,20 @@ public class Projectile : MonoBehaviour
         {
             Scatter();
         }
+        else
+        {
+            //Debug.Log("PROC");
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        target.Health -= damage;
 
         //Debug.Log("KABOOM");
-        //Rearm();//TODO need to delay this by a few seconds
+
+        StartCoroutine(TickCastDelay());
     }
 
     private void Move()
@@ -142,6 +203,32 @@ public class Projectile : MonoBehaviour
         foreach(Transform child in transform)
         {
             child.GetComponent<Projectile_Rotation>().SplitFromParent();
+        }
+    }
+
+    private IEnumerator TickCastDelay()
+    {
+        yield return new WaitForSeconds(castDelay);
+
+        
+        canFire = true;
+        Rearm();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(ManaRegen());
+    }
+
+    private IEnumerator ManaRegen()
+    {
+        while(true)
+        {
+            if (currentMana < maxMana)
+            {
+                currentMana += manaRegenRate;
+            }
+            yield return new WaitForSeconds(1f);
         }
     }
 }

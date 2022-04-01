@@ -7,8 +7,10 @@ public class Short_Range : Effect
 {
     [SerializeField] Texture2D extraTexture;
     [SerializeField] Color extraColor;
+    [SerializeField] int manaCost;
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         //TODO POPULATE ME
     }
 

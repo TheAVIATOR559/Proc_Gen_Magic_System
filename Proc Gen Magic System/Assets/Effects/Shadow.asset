@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Shadow
   ID: 9
   constructionPosition: 2
-  effectDesc: POPULATE ME
   gameplayEffectDesc: More damage on healthier foes
   visualEffectDesc: Adds shadow look
   noun: Shadow
@@ -25,3 +24,4 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: 12df10e4ee71cda4396155f62ad39d72, type: 3}
   elements: 5
   shadowNormal: {fileID: 2800000, guid: c8c704ddfedb1784baa422a34e78551d, type: 3}
+  manaCost: 10

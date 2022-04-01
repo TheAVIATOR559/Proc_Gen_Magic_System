@@ -7,10 +7,14 @@ public class Dump_All_Mana : Effect
 {
     [SerializeField] private float pulseSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] int damageIncreaseAmount;
+    [SerializeField] private GameObject OnContactEffect;
 
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        spell.projectileHolder.useManaDump = true;
+        spell.projectileHolder.damage += damageIncreaseAmount;
+        spell.projectileHolder.AddOnContactEffect(OnContactEffect);
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

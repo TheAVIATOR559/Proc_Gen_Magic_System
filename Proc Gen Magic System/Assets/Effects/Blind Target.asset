@@ -30,3 +30,4 @@ MonoBehaviour:
     conncectedEffect: {fileID: 7038745060019600149, guid: 0506d675ea2459048b9c4d6f7cddfcb3,
       type: 3}
     Target: {fileID: 0}
+  manaCost: 15

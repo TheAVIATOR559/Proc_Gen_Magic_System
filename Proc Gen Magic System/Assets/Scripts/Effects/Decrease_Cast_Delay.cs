@@ -6,10 +6,13 @@ using UnityEngine;
 public class Decrease_Cast_Delay : Effect
 {
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float castDelayReduction;
+    [SerializeField] int manaCost;
 
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        spell.projectileHolder.manaCost += manaCost;
+        spell.projectileHolder.castDelay -= castDelayReduction;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

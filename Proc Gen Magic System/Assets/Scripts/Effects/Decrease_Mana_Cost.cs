@@ -6,9 +6,10 @@ using UnityEngine;
 public class Decrease_Mana_Cost : Effect
 {
     [SerializeField] private float minOpacity, maxOpacity;
+    [SerializeField] int manaCost;
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        spell.projectileHolder.manaCost += manaCost;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

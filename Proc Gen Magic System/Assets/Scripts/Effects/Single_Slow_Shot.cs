@@ -6,8 +6,10 @@ using UnityEngine;
 public class Single_Slow_Shot : Effect
 {
     [SerializeField] private float slowAmount;
+    [SerializeField] int manaCost;
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         //TODO POPULATE ME
     }
 

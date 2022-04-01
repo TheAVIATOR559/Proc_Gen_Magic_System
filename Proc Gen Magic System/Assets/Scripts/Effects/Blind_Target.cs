@@ -7,9 +7,11 @@ public class Blind_Target: Effect
 {
     [SerializeField] private Color color;
     [SerializeField] DOT dot;
+    [SerializeField] int manaCost;
 
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         spell.projectileHolder.AddOnContactDOT(dot.CopyOf());
     }
 

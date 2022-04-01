@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Shotgun
   ID: 12
   constructionPosition: 3
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Increase the number of projectiles fired to 7-10
   visualEffectDesc: Add multiple 'pellets'
   noun: Shotgun
@@ -26,3 +25,4 @@ MonoBehaviour:
   projectileCount: 9
   projectileScale: 0.2
   projectileDistance: 0.15
+  manaCost: 20

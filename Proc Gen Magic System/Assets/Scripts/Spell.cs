@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Spell : MonoBehaviour
 {
-    [SerializeField] private bool canFire = false;
+    
     [SerializeField] private int projectileCountDefault = 1;
     [SerializeField] private float projectileScaleDefault = 1;
     [SerializeField] private float projectileDistanceDefault = 0f;
@@ -67,12 +67,5 @@ public class Spell : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(canFire && Input.GetKeyDown(KeyCode.F))
-        {
-            projectileHolder.Rearm();
-            projectileHolder.Fire();
-        }
-    }
+    
 }

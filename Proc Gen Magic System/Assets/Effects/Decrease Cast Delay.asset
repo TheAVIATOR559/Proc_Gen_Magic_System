@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Decrease Cast Delay
   ID: 21
   constructionPosition: 0
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Decrease time between firings
   visualEffectDesc: Increase orb spawn speed
   noun: Advance
@@ -24,3 +23,5 @@ MonoBehaviour:
   conflictingEffects: 
   circlePart: {fileID: 2800000, guid: 9c125d9ab7fb30b48adcde3d80138d84, type: 3}
   rotationSpeed: 85
+  castDelayReduction: 0.5
+  manaCost: 20

@@ -6,9 +6,11 @@ using UnityEngine;
 public class Weaken_Target : Effect
 {
     [SerializeField] private Color color;
+    [SerializeField] int manaCost;
 
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         //TODO POPULATE ME
     }
 

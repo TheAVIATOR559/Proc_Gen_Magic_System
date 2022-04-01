@@ -21,7 +21,7 @@ public class Target : MonoBehaviour
             else
             {
                 m_health = value;
-                //Debug.Log("Oww, that hurt :: " + m_health);
+                Debug.Log("Oww, that hurt :: " + m_health);
             }
         }
     }

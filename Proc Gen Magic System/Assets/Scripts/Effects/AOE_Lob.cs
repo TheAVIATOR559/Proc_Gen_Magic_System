@@ -8,8 +8,10 @@ public class AOE_Lob : Effect
     [SerializeField] Texture2D extraTexture;
     [SerializeField] Color extraColor;
     [SerializeField] GameObject arcExplosion;
+    [SerializeField] int manaCost;
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         spell.projectileHolder.useArc = true;
         spell.projectileHolder.AddOnContactEffect(arcExplosion);
     }

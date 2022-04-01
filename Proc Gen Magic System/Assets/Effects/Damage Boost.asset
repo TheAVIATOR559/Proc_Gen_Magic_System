@@ -15,7 +15,6 @@ MonoBehaviour:
   effectName: Damage Boost
   ID: 19
   constructionPosition: 0
-  effectDesc: POPULATE ME
   gameplayEffectDesc: Increase total spell damage
   visualEffectDesc: Increase damage visual power
   noun: Blow
@@ -23,3 +22,5 @@ MonoBehaviour:
   adjectivePosition: 9
   conflictingEffects: 
   circlePart: {fileID: 2800000, guid: 731ebb4546990644a8ccf63f1b2812b7, type: 3}
+  damageBoost: 25
+  manaCost: 25

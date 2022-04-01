@@ -5,9 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Damage Boost", menuName = "Effects/Damage Boost", order = 19)]
 public class Damage_Boost : Effect
 {
+    [SerializeField] private int damageBoost;
+    [SerializeField] int manaCost;
     public override void AddGameplayEffect(Spell spell)
     {
-        //TODO POPULATE ME
+        spell.projectileHolder.manaCost += manaCost;
+        spell.projectileHolder.damage += damageBoost;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

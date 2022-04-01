@@ -6,8 +6,10 @@ using UnityEngine;
 public class Slow_On_Contact : Effect
 {
     [SerializeField] private Color color;
+    [SerializeField] int manaCost;
     public override void AddGameplayEffect(Spell spell)
     {
+        spell.projectileHolder.manaCost += manaCost;
         //TODO POPULATE ME
     }
 
