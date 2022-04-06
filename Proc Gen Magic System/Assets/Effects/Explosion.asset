@@ -24,3 +24,5 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: 48372d90d6f6af14e8ba9f300753467f, type: 3}
   color: {r: 1, g: 0.3882353, b: 0.2784314, a: 0}
   manaCost: 25
+  explosionEffect: {fileID: 5768176596139941525, guid: 65db9d3ec9f829b41a30ce9097e44d60,
+    type: 3}

@@ -25,3 +25,4 @@ MonoBehaviour:
   pulseSpeed: 1.5
   minOpacity: 0.05
   manaCost: 20
+  speedIncrease: 50

@@ -10,9 +10,12 @@ public class Projectile : MonoBehaviour
     public bool useArc;
     public bool useCluster;
     public bool useManaDump;
+    public bool useLight;
+    public bool useShadow;
     public float speed;
     public int damage;
     public float castDelay;
+    public int lightDamageStack;
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
 
@@ -21,6 +24,8 @@ public class Projectile : MonoBehaviour
     private bool useArcDEFAULT = false;
     private bool useClusterDEFAULT = false;
     private bool useManaDumpDEFAULT = false;
+    private bool useLightDEFAULT = false;
+    private bool useShadowDEFAULT = false;
     private float speedDEFAULT = 1;
     private int damageDEFAULT = 10;
     private float castDelayDEFAULT = 2f;
@@ -54,6 +59,8 @@ public class Projectile : MonoBehaviour
         damage = damageDEFAULT;
         castDelay = castDelayDEFAULT;
         useManaDump = useManaDumpDEFAULT;
+        useLight = useLightDEFAULT;
+        useShadow = useShadowDEFAULT;
         currentMana = maxMana;
         manaCost = 0;
         OnContactEffects.Clear();
@@ -167,7 +174,22 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        target.Health -= damage;
+        if(useShadow)
+        {
+            target.Health -= damage + (int)(damage * (1 - ((target.MaxHealth - target.Health) / 100f)));
+        }
+        else
+        {
+            target.Health -= damage;
+        }
+
+        if(useLight)
+        {
+            if(target.Health <= 0)
+            {
+                damage += lightDamageStack;
+            }
+        }
 
         //Debug.Log("KABOOM");
 
@@ -215,7 +237,7 @@ public class Projectile : MonoBehaviour
         Rearm();
     }
 
-    private void Start()
+    private void OnEnable ()
     {
         StartCoroutine(ManaRegen());
     }
@@ -224,6 +246,7 @@ public class Projectile : MonoBehaviour
     {
         while(true)
         {
+            //Debug.Log("REGENING MANA");
             if (currentMana < maxMana)
             {
                 currentMana += manaRegenRate;

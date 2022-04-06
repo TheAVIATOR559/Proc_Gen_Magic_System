@@ -2391,9 +2391,12 @@ MonoBehaviour:
   useArc: 0
   useCluster: 0
   useManaDump: 0
+  useLight: 0
+  useShadow: 0
   speed: 1
   damage: 0
   castDelay: 0
+  lightDamageStack: 0
   pathCreator: {fileID: 1463029038}
   endOfPathInstruction: 2
   currState: 0
@@ -2949,6 +2952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf61a3c0bd7c374f956bbd0ab5375bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
   activeDots: []
 --- !u!4 &1750982413 stripped
 Transform:
@@ -3155,9 +3159,12 @@ MonoBehaviour:
   useArc: 0
   useCluster: 0
   useManaDump: 0
+  useLight: 0
+  useShadow: 0
   speed: 1
   damage: 0
   castDelay: 0
+  lightDamageStack: 0
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   currState: 0

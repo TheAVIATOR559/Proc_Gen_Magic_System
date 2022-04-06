@@ -55,7 +55,6 @@ public class Projectile_Rotation : MonoBehaviour
     {
         coll.enabled = true;
         rigbod.useGravity = true;
-        //todo add repulsion force here
         rigbod.AddForce((transform.position - transform.parent.position).normalized * 10, ForceMode.Impulse);
     }
 

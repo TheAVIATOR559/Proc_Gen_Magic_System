@@ -87,6 +87,8 @@ public class Target : MonoBehaviour
         }
     }
 
+    public int MaxHealth = 100;
+
     private int m_health = 100;
     private float m_accuracy = 0.8f;
     private float m_moveSpeed = 1f;

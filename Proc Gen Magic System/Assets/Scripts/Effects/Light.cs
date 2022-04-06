@@ -7,10 +7,12 @@ public class Light : Elemental_Effect
 {
     [SerializeField] private Texture2D lightNormal;
     [SerializeField] int manaCost;
+    [SerializeField] int damageStack;
     public override void AddGameplayEffect(Spell spell)
     {
         spell.projectileHolder.manaCost += manaCost;
-        //TODO POPULATE ME
+        spell.projectileHolder.useLight = true;
+        spell.projectileHolder.lightDamageStack = damageStack;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

@@ -7,10 +7,11 @@ public class Explosion : Effect
 {
     [SerializeField] private Color color;
     [SerializeField] int manaCost;
+    [SerializeField] GameObject explosionEffect;
     public override void AddGameplayEffect(Spell spell)
     {
         spell.projectileHolder.manaCost += manaCost;
-        //TODO POPULATE ME
+        spell.projectileHolder.AddOnContactEffect(explosionEffect);
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

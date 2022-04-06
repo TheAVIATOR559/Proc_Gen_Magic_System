@@ -8,10 +8,11 @@ public class Touch_Range : Effect
     [SerializeField] Texture2D extraTexture;
     [SerializeField] Color extraColor;
     [SerializeField] int manaCost;
+    [SerializeField] int speedIncrease;
     public override void AddGameplayEffect(Spell spell)
     {
         spell.projectileHolder.manaCost += manaCost;
-        //TODO POPULATE ME
+        spell.projectileHolder.speed = speedIncrease;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
