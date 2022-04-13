@@ -7,10 +7,11 @@ public class Single_Slow_Shot : Effect
 {
     [SerializeField] private float slowAmount;
     [SerializeField] int manaCost;
+    [SerializeField] private int moveSpeed;
     public override void AddGameplayEffect(Spell spell)
     {
         spell.projectileHolder.manaCost += manaCost;
-        //TODO POPULATE ME
+        spell.projectileHolder.speed = moveSpeed;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

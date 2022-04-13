@@ -7,11 +7,12 @@ public class Weaken_Target : Effect
 {
     [SerializeField] private Color color;
     [SerializeField] int manaCost;
+    [SerializeField] DOT dot;
 
     public override void AddGameplayEffect(Spell spell)
     {
         spell.projectileHolder.manaCost += manaCost;
-        //TODO POPULATE ME
+        spell.projectileHolder.AddOnContactDOT(dot.CopyOf());
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

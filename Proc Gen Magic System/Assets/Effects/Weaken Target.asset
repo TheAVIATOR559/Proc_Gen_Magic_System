@@ -24,3 +24,10 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: 60ab5ca7661ffb04dbf41b8fb9ff33c6, type: 3}
   color: {r: 1, g: 0.9843137, b: 0.7058824, a: 0}
   manaCost: 15
+  dot:
+    Type: 5
+    DamagePerTick: 25
+    Duration: 20
+    conncectedEffect: {fileID: 3961756138850015393, guid: 8ea51a52dd591bf4ba8e5f2705cb09e9,
+      type: 3}
+    Target: {fileID: 0}

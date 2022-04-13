@@ -10,7 +10,9 @@ public class DOT
         FIRE,
         ICE,
         SHOCK,
-        BLIND
+        BLIND,
+        SLOW,
+        WEAKEN
     }
 
     public DOTType Type;

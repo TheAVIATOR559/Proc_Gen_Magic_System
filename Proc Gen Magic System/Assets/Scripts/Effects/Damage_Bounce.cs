@@ -7,11 +7,13 @@ public class Damage_Bounce : Effect
 {
     [SerializeField] private Color color;
     [SerializeField] int manaCost;
+    [SerializeField] int bounceCount = 1;
 
     public override void AddGameplayEffect(Spell spell)
     {
         spell.projectileHolder.manaCost += manaCost;
-        //TODO POPULATE ME
+        spell.projectileHolder.useBounce = true;
+        spell.projectileHolder.bounceMax += bounceCount;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)

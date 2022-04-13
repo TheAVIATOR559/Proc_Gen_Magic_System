@@ -24,3 +24,4 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: 760f868a93abc264d958dbb10e5ee9b2, type: 3}
   slowAmount: 0.1
   manaCost: 20
+  moveSpeed: 1

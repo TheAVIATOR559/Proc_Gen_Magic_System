@@ -5,13 +5,16 @@ using PathCreation;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private bool canFire = false;
+    public bool canFire = false;
 
     public bool useArc;
     public bool useCluster;
     public bool useManaDump;
     public bool useLight;
     public bool useShadow;
+    public bool useBounce;
+    public bool useShotgun;
+    public int bounceMax;
     public float speed;
     public int damage;
     public float castDelay;
@@ -26,9 +29,12 @@ public class Projectile : MonoBehaviour
     private bool useManaDumpDEFAULT = false;
     private bool useLightDEFAULT = false;
     private bool useShadowDEFAULT = false;
+    private bool useBounceDEFAULT = false;
+    private bool useShotgunDEFAULT = false;
     private float speedDEFAULT = 1;
     private int damageDEFAULT = 10;
     private float castDelayDEFAULT = 2f;
+    private int bounceMaxDEFAULT = 0;
     private enum State
     {
         NOT_MOVING,
@@ -50,6 +56,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] private int manaRegenRate = 10;
     public int manaCost;
 
+    [SerializeField] private int bounceCount = 0;
+    private float distanceTraveled = 0;
+
     public void Reset()
     {
         transform.position = transform.parent.position;
@@ -61,7 +70,13 @@ public class Projectile : MonoBehaviour
         useManaDump = useManaDumpDEFAULT;
         useLight = useLightDEFAULT;
         useShadow = useShadowDEFAULT;
+        useBounce = useBounceDEFAULT;
         currentMana = maxMana;
+        bounceMax = bounceMaxDEFAULT;
+        useShotgun = useShotgunDEFAULT;
+        canFire = true;
+        bounceCount = 0;
+        distanceTraveled = 0;
         manaCost = 0;
         OnContactEffects.Clear();
         OnContactDots.Clear();
@@ -74,7 +89,7 @@ public class Projectile : MonoBehaviour
         transform.rotation = new Quaternion(0, 0, 0, 0);
         distanceTravelled = 0;
         currState = State.NOT_MOVING;
-
+        bounceCount = 0;
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(true);
@@ -97,9 +112,9 @@ public class Projectile : MonoBehaviour
         canFire = false;
     }
 
-    private void Update()
+    public void TryFire()
     {
-        if (canFire && Input.GetKeyDown(KeyCode.F))
+        if (canFire)
         {
             if(currentMana >= manaCost)
             {
@@ -111,7 +126,10 @@ public class Projectile : MonoBehaviour
                 Debug.Log("Not enough mana");
             }
         }
+    }
 
+    private void Update()
+    {
         switch (currState)
         {
             case State.NOT_MOVING:
@@ -178,6 +196,12 @@ public class Projectile : MonoBehaviour
         {
             target.Health -= damage + (int)(damage * (1 - ((target.MaxHealth - target.Health) / 100f)));
         }
+        else if(useShotgun)
+        {
+            distanceTraveled = Vector3.Magnitude(transform.position - transform.parent.position);
+            target.Health -= (int)(damage * (1 - (damage / distanceTraveled / 100f)));
+            //Debug.Log(distanceTraveled + "::" + (1 - (damage / distanceTraveled / 100f)) + "::" + (damage * (1 - (damage / distanceTraveled / 100f))));
+        }
         else
         {
             target.Health -= damage;
@@ -193,7 +217,25 @@ public class Projectile : MonoBehaviour
 
         //Debug.Log("KABOOM");
 
-        StartCoroutine(TickCastDelay());
+        if(useBounce && bounceCount < bounceMax)
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+
+            Debug.Log((transform.parent.position.x - transform.position.x) / 2f + "::" + transform.position.x + "::" + transform.parent.position.x);
+
+            //move away from target
+            transform.Translate((transform.parent.position.x - transform.position.x) / 2f, 0, 0, Space.World);
+            //move back toward target
+            currState = State.MOVING;
+            bounceCount++;
+        }
+        else
+        {
+            StartCoroutine(TickCastDelay());
+        }
     }
 
     private void Move()

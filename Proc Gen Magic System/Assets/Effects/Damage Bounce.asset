@@ -15,7 +15,7 @@ MonoBehaviour:
   effectName: Damage Bounce
   ID: 6
   constructionPosition: 2
-  gameplayEffectDesc: Damage bounces to neighbors
+  gameplayEffectDesc: Damage bounces off target
   visualEffectDesc: Adds lightning color
   noun: Agitation
   adjective: Bouncing
@@ -24,3 +24,4 @@ MonoBehaviour:
   circlePart: {fileID: 2800000, guid: 3589f655e79efdb40b6e825b967e3aa1, type: 3}
   color: {r: 0.76862746, g: 0.85882354, b: 0, a: 0}
   manaCost: 25
+  bounceCount: 1

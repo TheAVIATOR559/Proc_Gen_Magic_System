@@ -125,6 +125,14 @@ public class Target : MonoBehaviour
             {
                 instance.Accuracy = instance.accDEFAULT - (instance.activeDots[index].DamagePerTick / 100f);
             }
+            if(instance.activeDots[index].Type == DOT.DOTType.SLOW)
+            {
+                instance.MoveSpeed = instance.movSpdDEFAULT - instance.activeDots[index].DamagePerTick;
+            }
+            if (instance.activeDots[index].Type == DOT.DOTType.WEAKEN)
+            {
+                instance.Damage = instance.damDEFAULT - instance.activeDots[index].DamagePerTick;
+            }
         }
         else
         {
@@ -134,6 +142,14 @@ public class Target : MonoBehaviour
             if (instance.activeDots[instance.activeDots.Count - 1].Type == DOT.DOTType.BLIND)
             {
                 instance.Accuracy = instance.accDEFAULT - (instance.activeDots[instance.activeDots.Count - 1].DamagePerTick / 100f);
+            }
+            if (instance.activeDots[instance.activeDots.Count - 1].Type == DOT.DOTType.SLOW)
+            {
+                instance.MoveSpeed = instance.movSpdDEFAULT - instance.activeDots[instance.activeDots.Count - 1].DamagePerTick;
+            }
+            if (instance.activeDots[instance.activeDots.Count - 1].Type == DOT.DOTType.WEAKEN)
+            {
+                instance.Damage = instance.damDEFAULT - instance.activeDots[instance.activeDots.Count - 1].DamagePerTick;
             }
         }        
     }
@@ -150,11 +166,19 @@ public class Target : MonoBehaviour
                     {
                         Accuracy = accDEFAULT;
                     }
+                    if(activeDots[i].Type == DOT.DOTType.SLOW)
+                    {
+                        MoveSpeed = movSpdDEFAULT;
+                    }
+                    if (activeDots[i].Type == DOT.DOTType.WEAKEN)
+                    {
+                        Damage = damDEFAULT;
+                    }
                     Destroy(activeDots[i].conncectedEffect);
                     activeDots.RemoveAt(i);
                     continue;
                 }
-                else if(activeDots[i].Type != DOT.DOTType.BLIND)
+                else if(activeDots[i].Type != DOT.DOTType.BLIND && activeDots[i].Type != DOT.DOTType.SLOW && activeDots[i].Type != DOT.DOTType.WEAKEN)
                 {
                     Health -= activeDots[i].DamagePerTick;
                 }

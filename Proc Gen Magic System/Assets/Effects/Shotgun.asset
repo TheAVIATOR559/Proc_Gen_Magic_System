@@ -26,3 +26,4 @@ MonoBehaviour:
   projectileScale: 0.2
   projectileDistance: 0.15
   manaCost: 20
+  damageIncrease: 25

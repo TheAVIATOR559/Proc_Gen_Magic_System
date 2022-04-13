@@ -9,11 +9,13 @@ public class Shotgun : Effect
     [SerializeField] private float projectileScale;
     [SerializeField] private float projectileDistance;
     [SerializeField] int manaCost;
+    [SerializeField] int damageIncrease;
 
     public override void AddGameplayEffect(Spell spell)
     {
         spell.projectileHolder.manaCost += manaCost;
-        //TODO POPULATE ME
+        spell.projectileHolder.damage += damageIncrease;
+        spell.projectileHolder.useShotgun = true;
     }
 
     public override void AddVisualEffect(CircleLocation location, Material mat, Spell spell)
