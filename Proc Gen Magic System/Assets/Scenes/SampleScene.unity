@@ -1470,7 +1470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 0.12385186}
-  m_AnchoredPosition: {x: -1.539917, y: 0.000061035156}
+  m_AnchoredPosition: {x: -1.5400391, y: 0}
   m_SizeDelta: {x: -3.08, y: -0.000045776}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801499540
@@ -3347,6 +3347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   activeDots: []
+  damagePopup: {fileID: 851971482057073932, guid: 6826745676e776d47a3a394543bfdaa8,
+    type: 3}
 --- !u!4 &1750982413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6655908546646854261, guid: c3a96b53d5dd75046b0c61a7e4419608,

@@ -12,7 +12,8 @@ public class Target : MonoBehaviour
         }
         set
         {
-            //Debug.Log(m_health);
+            DamagePopUp temp = Instantiate(damagePopup, transform.position + Vector3.up, Quaternion.identity).GetComponent<DamagePopUp>();
+            temp.SetText(m_health - value);
             if(m_health <= 0)
             {
                 m_health = 0;
@@ -100,6 +101,8 @@ public class Target : MonoBehaviour
 
     [SerializeField] private List<DOT> activeDots = new List<DOT>();
     public static Target instance;
+
+    [SerializeField] private GameObject damagePopup;
 
     private void Awake()
     {
